@@ -1,15 +1,20 @@
-import { faCaretDown, faCartShopping, faChevronDown, faLock, faStar, } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faChevronDown, faX, } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
-import IntroCard from "../components/atoms/molecules/IntroCard";
+import IntroCard from "../components/molecules/IntroCard";
 import { faBoxOpen, faCreditCard, faHeadset, faTruck } from "@fortawesome/free-solid-svg-icons";
+import NewProduct from "../components/molecules/NewProduct";
+import Button from "../components/atoms/Button";
+import { faFacebook, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons";
+import Category from "../components/molecules/Category";
+
 
 
 
 
 export default function Landing(){
     return(
-        <main>
+        <main className="px-0">
             <div className="w-full h-[4.5rem] bg-[#212121] flex items-center text-white justify-between px-[6.31rem]">
                 <div className="">
                     <div className="w-[12.44513rem] h-[1.44rem]">
@@ -106,7 +111,7 @@ export default function Landing(){
                             <p className="text-[1rem] font-normal leading-[1.45rem] text-[#FFFFFF]">Elevate your beauty routine with our curated selection of premium cosmetics, skincare, and beauty essentials</p>
                         </div>
                         <div>
-                            <button className=" bg-[#FFF] font-[garamond] h-[3rem] w-[8.4374rem] gap-[0.625rem] rounded-[0.5rem]">Shop Now <FontAwesomeIcon icon ={faCaretDown} className="w-[1.25rem] h-[1.25rem]" /></button>
+                            <Button text="Shop Now" style={{backgroundColor:'white'}} />
                         </div>
                         
                     </div>
@@ -115,7 +120,7 @@ export default function Landing(){
                 
             </section>
             <section>
-                <div className="bg-[#800020] py-[2.81rem] px-[6.25rem] ">
+                <div className="bg-[#800020] py-[2.81rem] px-[6.25rem]">
                     <div className="flex justify-between items-center">
                         {intro.map((item)=> (
                         <IntroCard key={item.key} text={item.text} img={item.img} subtext={item.subtext} icon={item.icon} />
@@ -169,41 +174,102 @@ export default function Landing(){
                 </div>
 
                 <div className="px-[7.25rem] py-[2.63rem]">
-                    <div className="w-[17.875rem]">
-                        <div className="w-[18.4375rem] h-[14.5625rem] py-[1rem]">
-                            <img className="object-contain w-full h-full" src={"/img/newproduct1.png"} alt="img1" />
+                    <div className="flex flex-wrap justify-between">
+                        {newProduct.map((item)=>(
+                            <NewProduct key={item.key} img={item.img} productname={item.productname} price={item.price} productdescription={item.description} reviews={item.reviews}/>
+                        ))}
+                    </div>
+                    <div className="mt-[2.5rem] flex flex-col justify-center items-center">
+                        <div className="">
+                            <p className="text-[0.75rem] font-[garamond] font-normal leading-[1.0875rem] text-[#1D2739]">20 of 45,575 products</p>
                         </div>
-                        <div className="flex justify-between text-[#101928] py-[0.12rem]">
-                            <h2 className="uppercase text-[1rem] font-[garamond]  leading-[1.5rem] font-normal">Clinique Liquid</h2>
-                            <h5 className="font-bold text-[0.75rem] leading-[1.0875rem]"><sup>$</sup>50<sup>.00</sup></h5>
+                        <div className="mt-[1.5rem]">
+                            <Button text="Load More" style={{backgroundColor:'black', color:'white'}} />
                         </div>
-                        <div className="text-[#1D2739]">
-                            <p className="text-[0.75rem] leading-[1.0875rem]">Anti- Blemish Liquid Makeup Solutions and Face Cream 600ml.</p>
-                        </div>
-                        <div className="flex items-center gap-3 py-[0.94rem]">
-                            <div className="text-[#F5D530] flex">
-                                <FontAwesomeIcon className="w-[1rem] h-[1rem]" icon={faStar} />
-                                <FontAwesomeIcon className="w-[1rem] h-[1rem]" icon={faStar} />
-                                <FontAwesomeIcon className="w-[1rem] h-[1rem]" icon={faStar} />
-                                <FontAwesomeIcon className="w-[1rem] h-[1rem]" icon={faStar} />
-                                <FontAwesomeIcon className="w-[1rem] h-[1rem]" icon={faStar} />
-
-                            </div>
-                            <div className="text-[0.875rem] font-normal leading-[1.25rem] font-[garamond]">
-                                <p>(30+ Reviews)</p>
-                            </div>
-                            
-                        </div>
-                        <div className="py-[1rem]">
-                                <button className="border-[1.5px] border-[#D0D5DD] rounded-[0.5rem] py-[0.5rem] px-[0.75rem] flex gap-3 items-center font-[garamond]">
-                                    <FontAwesomeIcon icon={faLock} className="w-[1rem] h-[1rem]"/>
-                                    <p className="text-[0.875rem] font-[garamond] leading-[1.26875rem]">Add to Cart</p>
-                                </button>
-                            </div>
-                        
                     </div>
                     
                 </div>
+            </section>
+
+            <section className="bg-[#800020] h-[38.375rem]">
+                <div className="flex h-full px-[6.25rem]">
+                    <div className="flex flex-col justify-center h-full">
+                        <div className="">
+                            <h2 className="text-[3.75rem] font-normal leading-[3.9375rem] font-[garamond] text-[#FFFFFF]">
+                                Share with us on our Social Channels using <span className="italic">#Glambeauty</span> for a chance to feature!
+                            </h2>
+                        </div>
+                        <div className="text-white mt-[1.13rem] gap-[0.12rem]">
+                            <button className="w-[4.03rem] h-[3.03rem]">
+                                <FontAwesomeIcon className="w-[2.375rem] h-[2.375rem] object-contain" icon={faX} />
+                            </button>
+                            <button className="w-[4.03rem] h-[3.03rem]">
+                                <FontAwesomeIcon className="w-[2.375rem] h-[2.375rem] object-contain" icon={faTiktok} />
+                            </button>
+                            <button className="w-[4.03rem] h-[3.03rem]">
+                                <FontAwesomeIcon className="w-[2.375rem] h-[2.375rem] object-contain" icon={faInstagram} />
+                            </button>
+                            <button className="w-[4.03rem] h-[3.03rem]">
+                                <FontAwesomeIcon className="w-[2.375rem] h-[2.375rem] object-contain" icon={faFacebook} />
+                            </button>
+                        </div>
+                    </div>
+                    <div className="flex justify-center h-full w-full items-center space-x-[0.75rem]">
+                        <div className="space-y-[1.13rem]">
+                            <div className="w-[16.125rem] h-[14.25rem]">
+                                <img className="object-centain w-full h-full" src="/img/share1.png" alt="img "/>
+                            </div>
+                            <div className="w-[16.125rem] h-[12.5rem]">
+                                <img className="object-centain w-full h-full" src="/img/share3.png" alt="img "/>
+                            </div>
+                        </div>
+                        <div className="space-y-[1rem]">
+                            <div className="w-[14.875rem] h-[12.5rem]">
+                                <img className="object-centain w-full h-full" src="/img/share2.png" alt="img "/>
+                            </div>
+                            <div className="w-[14.875rem] h-[14.325rem]">
+                                <img className="object-centain w-full h-full" src="/img/share4.png" alt="img "/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div className="px-[6.44rem] pt-[4.94rem]">
+                    <div className="py-[]">
+                        <h3 className="text-[1.25rem font-[garamond] font-normal text-[#333] leading-[1.25rem] ">Shop By Categories</h3>     
+                    </div>
+                    <div className="flex flex-wrap justify-between space-y-2 py-[2.5rem]">
+                        {categoryimage.map((item)=>(
+                            <Category key={item.key} img={item.img} />
+                        ))}
+                    </div>
+                </div>
+                    
+                    
+            </section>
+            <section className="bg-[#FEEFE2] h-[33.375rem]">
+            <div className="flex h-full px-[6.25rem]">
+                <div className="flex flex-col justify-center h-full">
+                            <div className="w-[41.125rem]">
+                                <h2 className="text-[3.4375rem] font-normal leading-[4.9843rem] font-[garamond] text-[#000]">
+                                Get Upto  20% Off Our Products if you Shop with us Today! 
+                                </h2>
+                            </div>
+                            <div className="text-white mt-[2.69rem] gap-[0.12rem]">
+                                <Button text="Shop Now" style={{backgroundColor:'black'}} />
+                            </div>
+                        </div>
+                    <div className="flex justify-center h-full w-full items-center space-x-[0.75rem]">
+                        <div className="">
+                            <div className="w-[43.625rem] h-[33.375rem]">
+                                <img className="object-centain w-full h-full" src="/img/lady.png" alt="img "/>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            
             </section>
         </main>
     )
@@ -240,5 +306,107 @@ const intro = [
         text:"Top Notch Customer Support",
         subtext:"We ensure money-back guarantee if the product is counterfeit"
     }
+
+]
+
+const newProduct=[
+    {
+        key:"newproduct1",
+        img:"/img/newproduct1.png",
+        productname:"CLINIQUE LIQUID",
+        price:"50.00",
+        description:"Anti- Blemish Liquid Makeup Solutions and Face Cream 600ml.",
+        reviews:"30+ Reviews"
+    },
+    {
+        key:"newproduct2",
+        img:"/img/newproduct2.png",
+        productname:"evelin vody wash",
+        price:"54.00",
+        description:"99% Natural Aloe Vera Multifunctional Body and Face Gel 400ml.",
+        reviews:"30+ Reviews"
+    },
+    {
+        key:"newproduct3",
+        img:"/img/newproduct3.png",
+        productname:"camelo",
+        price:"35.00",
+        description:"Anti Damage Keratin Mask for Damaged Hair 200ml.",
+        reviews:"30+ Reviews"
+    },
+    {
+        key:"newproduct4",
+        img:"/img/newproduct4.png",
+        productname:"mon paris",
+        price:"80.00",
+        description:"The best elegant perfume for women",
+        reviews:"30+ Reviews"
+    },
+     {
+        key:"newproduct5",
+        img:"/img/newproduct5.png",
+        productname:"court heels",
+        price:"70.56",
+        description:"The best elegant perfume for women",
+        reviews:"30+ Reviews"
+    },
+     {
+        key:"newproduct6",
+        img:"/img/newproduct6.png",
+        productname:"CLARINS DOUBLE SERUM",
+        price:"60.00",
+        description:"nti- Blemish Liquid Makeup Solutions and Face Cream 600ml.",
+        reviews:"30+ Reviews"
+    },
+    {
+        key:"newproduct7",
+        img:"/img/newproduct7.png",
+        productname:"Essence",
+        price:"90.00",
+        description:"Anti Damage Keratin Mask for Damaged Hair 200ml.",
+        reviews:"30+ Reviews"
+    },
+    {
+        key:"newproduct8",
+        img:"/img/newproduct8.png",
+        productname:"mon paris",
+        price:"60.00",
+        description:"The best elegant body wash for women",
+        reviews:"30+ Reviews"
+    }
+]
+const categoryimage=[
+    {
+        key:"image1",
+        img:"/img/category1.png"
+    },
+    {
+        key:"image2",
+        img:"/img/category2.png"
+    },
+    {
+        key:"image3",
+        img:"/img/category3.png"
+    },
+    {
+        key:"image4",
+        img:"/img/category4.png"
+    },
+    {
+        key:"image5",
+        img:"/img/category5.png"
+    },
+    {
+        key:"image6",
+        img:"/img/category6.png"
+    },
+    {
+        key:"image7",
+        img:"/img/category7.png"
+    },
+    {
+        key:"image8",
+        img:"/img/category8.png"
+    },
 
 ]
