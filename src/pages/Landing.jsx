@@ -1,4 +1,4 @@
-import { faCartShopping, faChevronDown, faEnvelope, faPhone, faX, } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown, faCartShopping, faChevronDown, faEnvelope, faPhone, faSearch, faX, } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 import IntroCard from "../components/molecules/IntroCard";
@@ -15,6 +15,22 @@ import Category from "../components/molecules/Category";
 export default function Landing(){
     return(
         <main className="px-0">
+            <div className="h-[4.5rem] bg-[#121212] flex justify-end space-x-[7.31rem] px-[6.31rem]">
+                    <div className="text-[#FFF] flex items-center space-x-[3rem]">
+                        <p className="text-[0.75rem] leading-[-0.00375rem] ">Upto 50% off Selected Brands + Free UK delivery on Orders above $10</p>
+                        <a href="#" className="text-[0.75rem] leading-[1.00375rem] tracking-[-0.00375rem]">Shop Now</a>
+                    </div>
+                    <div className="flex items-center text-[#FFF] space-x-[1.75rem] font-[inter] text-[0.75rem]">
+                        <p><FontAwesomeIcon icon={faPhone} />+1 2345 56768</p>
+                        <p>EN <FontAwesomeIcon icon={faCaretDown}/></p>
+                        <div className="flex gap-[0.5rem]">
+                            <div>
+                                <img src="/img/Frame.png" />
+                            </div>
+                            <p>United Kingdom <FontAwesomeIcon icon={faCaretDown}/></p>
+                        </div>
+                    </div>
+            </div>
             <div className="w-full h-[4.5rem] bg-[#212121] flex items-center text-white justify-between px-[6.31rem]">
                 <div className="">
                     <div className="w-[12.44513rem] h-[1.44rem]">
@@ -22,8 +38,10 @@ export default function Landing(){
                     </div>
                 </div>
                 <div>
-                   <div className="h-[2.25rem] w-[31.5rem] py-[0.5rem] px-[0.75rem] flex items-center "> 
-                   <input type="text" placeholder="Search here" style={{width:"100%"}} className="text-black"/></div> 
+                   <div className="h-[2.25rem] w-[31.5rem] py-[0.5rem] px-[0.75rem] flex items-center relative"> 
+                        <FontAwesomeIcon icon={faSearch} className="absolute px-2 text-black"/>
+                        <input type="text" placeholder="Search here" className="text-black rounded-[0.375rem] w-full py-[0.5rem] pl-[30px] text-[0.875rem]"/>
+                   </div> 
                 </div>
                 <div className="flex items-center space-x-6">
                    <div className="flex items-center">
