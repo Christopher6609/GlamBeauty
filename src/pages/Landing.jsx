@@ -1,11 +1,11 @@
-import { faCartShopping, faChevronDown, faX, } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faChevronDown, faEnvelope, faPhone, faX, } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 import IntroCard from "../components/molecules/IntroCard";
 import { faBoxOpen, faCreditCard, faHeadset, faTruck } from "@fortawesome/free-solid-svg-icons";
 import NewProduct from "../components/molecules/NewProduct";
 import Button from "../components/atoms/Button";
-import { faFacebook, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faInstagram, faLinkedin, faTiktok } from "@fortawesome/free-brands-svg-icons";
 import Category from "../components/molecules/Category";
 
 
@@ -271,6 +271,101 @@ export default function Landing(){
                 </div>
             
             </section>
+            <footer className="bg-[#000] text-[#FFF]">
+                <div className="pt-[3.12rem] px-[6.19rem]">
+                    <div className="flex flex-col justify-center items-center">
+                        <h2 className="font-[garamond] text-[1.875rem] font-normal leading-[2.375rem] uppercase">Be the first!</h2>
+                        <p className="text-[1rem] color-[#DFDFDF] font-[400] leading-[1.875rem] font-[inter]">Sign up now to receive the latest news, offers and exclusive drops</p>
+                    </div>
+                    <div className="flex gap-[1rem] justify-center items-cente mt-[1.25rem] ">
+                        <form>
+                            <input type="text" placeholder="Enter your email" name="subscribe" className="w-[22.5rem] h-[3rem] rounded-[0.5rem] border-[#D0D5DD] text-[#000] px-[0.875rem] py-[0.75rem]"  />
+                        </form>
+                        <button className="bg-[#FFF] w-[6.875rem] h-[3rem] rounded-[0.5rem] text-[#000] font-[garamond]">Subscribe</button>
+                    </div>
+                    <div className="text-center">
+                        <p className="font-[inter] text-[0.875rem] font-normal leading-[1.25rem]">We care about your data in our <a href="#" className="underline"> privacy policy.</a></p>
+                    </div>
+                    <div className="flex justify-between py-[5.56rem]">
+                        <div>
+                            <ul className="font-[garamond] text-[1rem] leading-[1.5rem] text-[#FEEFE2] space-y-[0.75rem]">
+                                <li className="text-[1.5rem] leading-[1.25rem]"><a href="#">GlamBeauty</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Partnership & Supplies</a></li>
+                                <li><a href="#">Sitemap</a></li>
+                                <ul className="flex gap-[1rem]">
+                                    <li><a href="#"><FontAwesomeIcon icon={faX} /></a></li>
+                                    <li><a href="#"><FontAwesomeIcon icon={faLinkedin} /></a></li>
+                                    <li><a href="#"><FontAwesomeIcon icon={faInstagram} /></a></li>
+                                    
+                                </ul>
+                            </ul>
+                            
+                        </div>
+                        <div>
+                            <ul className="font-[garamond] text-[1rem] leading-[1.5rem] text-[#FEEFE2] space-y-[0.75rem]">
+                                <li className="text-[1.5rem] leading-[1.25rem]"><a href="#">Legal</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Cookie Policy (EU)</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                        <div>
+                            <ul className="font-[garamond] text-[1rem] leading-[1.5rem] text-[#FEEFE2] space-y-[0.75rem]">
+                                <li className="text-[1.5rem] leading-[1.25rem]"><a href="#">Help & Information</a></li>
+                                <li><a href="#">Delivery Information</a></li>
+                                <li><a href="#">Returns Policy</a></li>
+                                <li><a href="#">FAQs</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                        <div>
+                            <ul className="font-[garamond] text-[1rem] leading-[1.5rem] text-[#FEEFE2] space-y-[0.75rem]">
+                                <li className="text-[1.5rem] leading-[1.25rem]"><a href="#">Contact Us</a></li>
+                                <li><FontAwesomeIcon icon={faPhone} className="pr-[0.5rem]"/>07999385318, 07865432665</li>
+                                <li><FontAwesomeIcon icon={faEnvelope} className="pr-[0.5rem]" /><a href="mailto:glambeautyy@gmail.com"></a>Glambeauty@gmail.com</li>
+                            </ul>
+                            
+                        </div>
+                        <div>
+                            <ul className="font-[garamond] text-[1rem] leading-[1.5rem] text-[#FEEFE2] space-y-[0.75rem]">
+                                <li className="text-[1.5rem] leading-[1.25rem]"><a href="#">Our International sites</a></li>
+                                    <ul className="flex gap-[1rem]">
+                                        <li><img src="/img/us1.png" alt="img" className="w-[1.875rem] h-[1.875rem]"/></li>
+                                        <li><img src="/img/fr1.png" alt="img" className="w-[1.875rem] h-[1.875rem]"/></li>
+                                        <li><img src="/img/pl1.png" alt="img" className="w-[1.875rem] h-[1.875rem]"/></li>
+                                        <li><img src="/img/dk1.png" alt="img" className="w-[1.875rem] h-[1.875rem]"/></li>
+                                        <li><img src="/img/it1.png" alt="img" className="w-[1.875rem] h-[1.875rem]"/></li>
+                                        <li><img src="/img/es1.png" alt="img" className="w-[1.875rem] h-[1.875rem]"/></li>
+                                    </ul>
+                                    <ul className="space-y-[1rem]">
+                                    <li className="text-[1.5rem] leading-[1.25rem]">Supported Payments</li>
+                                    <ul className="flex gap-[1rem]">
+                                        <li><img src="/img/apple-pay-png1.png" alt="img" className="w-[2.5rem] h-[1.5625rem]"/></li>
+                                        <li><img src="/img/pay-pal-png1.png" alt="img" className="w-[2.5rem] h-[1.5625rem]"/></li>
+                                        <li><img src="/img/visa-png1.png" alt="img" className="w-[2.5rem] h-[1.5625rem]"/></li>
+                                        <li><img src="/img/mastercard-png1.png" alt="img" className="w-[2.5rem] h-[1.5625rem]"/></li>
+                                    </ul>
+                                    </ul>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                   <hr className="text-white"/>
+                   <div className="flex justify-between py-[2rem]">
+                    <div className="w-[12.44513rem] h-[1.44rem]">
+                        <img className="object-contain w-full h-full" src="/img/LOGO.png"/>
+                    </div>
+                    <div className="flex">
+                        <h3>GLAMBEAUTY &copy; 2024.</h3>
+                        <p>All Right Reserved</p>
+                    </div>
+                   </div>
+                </div>
+            </footer>
         </main>
     )
 
