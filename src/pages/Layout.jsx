@@ -10,7 +10,7 @@ export default function Layout(){
     return (
         <>  
 
-        <div className="max-w-[1440px]">
+        <div className="max-w-[1440px] ">
             <div className="h-[4.5rem] bg-[#121212] flex justify-end space-x-[7.31rem] px-[6.31rem]">
                     <div className="text-[#FFF] flex items-center space-x-[3rem]">
                         <p className="text-[0.75rem] leading-[-0.00375rem] ">Upto 50% off Selected Brands + Free UK delivery on Orders above $10</p>

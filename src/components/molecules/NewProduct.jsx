@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import { faLock, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {Link } from "react-router-dom";
 
-export default function NewProduct({img, productname,price, productdescription, reviews}){
+
+export default function NewProduct({ img, productname,price, productdescription, reviews}){
     return(
         <>
-           <Link to="/productdetails">
+           
                 <div className="w-[17.875rem] p-3 border-[2px] rounded-[0.5rem] mt-2">
                             <div className="w-[18.4375rem] h-[14.5625rem] py-[1rem]">
                                 <img className="object-contain w-full h-full" src={img} alt="img1" />
@@ -40,7 +40,7 @@ export default function NewProduct({img, productname,price, productdescription, 
                                 </div>
                             
                         </div>
-                        </Link>
+                        
         </>
     )
 }

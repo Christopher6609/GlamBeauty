@@ -1,10 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {  faCartPlus, faCircleArrowLeft, faCircleArrowRight, faMinus, faPlus, faStar } from "@fortawesome/free-solid-svg-icons";
+import { useParams } from "react-router-dom";
 
-export default function ProductDetails(){
+const ProductDetails = () => {
+const params = useParams();
+
+
     return (
         < >
-        
             <section className="py-[4.41rem] px-[6.31rem]">
                 <div className="flex items-center">
                     <div>
@@ -26,14 +29,14 @@ export default function ProductDetails(){
                     </div>
                     <div>
                         <div className="w-[29rem] h-[38.0625rem]">
-                            <img className="object-contain w-full h-full" src="/img/Rectangle 522.png" alt="image" />
+                            <img className="object-contain w-full h-full" src="" alt="image" />
                         </div>
                     </div>
                     <div>
                         <div className=" space-y-[1.13rem]">
                             <div className="space-y-[1.13rem]">
                             <h1 className="text-[2rem] font-[garamond] text-[#101928] font-normal leading-[2.4rem] tracking-[-0.04rem] uppercase ">
-                                Clinique Anti-Blemish Solutions Liquid Makeup 30ml
+                                {params.productname}
                             </h1>
                             <p className="text-[0.875rem] text-[#1D2739] font-[garamond] leading-[1.26875rem]  ">
                                 Experience Clinique&apos;s Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.    
@@ -137,3 +140,5 @@ export default function ProductDetails(){
         </>
     )
 }
+
+export default ProductDetails;
