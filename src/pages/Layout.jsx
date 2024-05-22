@@ -11,15 +11,15 @@ export default function Layout(){
         <>  
 
         <div className="max-w-[1440px] ">
-            <div className="h-[4.5rem] bg-[#121212] flex justify-end space-x-[7.31rem] px-[6.31rem]">
-                    <div className="text-[#FFF] flex items-center space-x-[3rem]">
-                        <p className="text-[0.75rem] leading-[-0.00375rem] ">Upto 50% off Selected Brands + Free UK delivery on Orders above $10</p>
-                        <a href="#" className="text-[0.75rem] leading-[1.00375rem] tracking-[-0.00375rem]">Shop Now</a>
+        <div className="md:h-[4.5rem] h-[2rem] bg-[#121212] flex justify-end space-x-[0.75rem] md:space-x-[7.31rem] px-[1rem] md:px-[6.31rem] ">
+                    <div className="text-[#FFF] flex items-center md:space-x-[3rem]">
+                        <marquee> <p className=" text-[0.5rem] md:text-[0.75rem] leading-[-0.00375rem] ">Upto 50% off Selected Brands + Free UK delivery on Orders above $10</p></marquee> 
+                        <a href="#" className="md:text-[0.75rem] text-[0.5rem] leading-[1.00375rem] tracking-[-0.00375rem] hidden md:block">Shop Now</a>
                     </div>
-                    <div className="flex items-center text-[#FFF] space-x-[1.75rem] font-[inter] text-[0.75rem]">
+                    <div className="flex items-center text-[#FFF] md:space-x-[1.75rem] space-x-[0.75rem] font-[inter] md:text-[0.75rem] text-[0.5rem]">
                         <p><FontAwesomeIcon icon={faPhone} />+1 2345 56768</p>
-                        <p>EN <FontAwesomeIcon icon={faCaretDown}/></p>
-                        <div className="flex gap-[0.5rem]">
+                        <p className="hidden md:block">EN <FontAwesomeIcon icon={faCaretDown}/></p>
+                        <div className="flex gap-[0.2rem] items-center md:gap-[0.5rem]">
                             <div>
                                 <img src="/img/Frame.png" />
                             </div>
@@ -27,33 +27,34 @@ export default function Layout(){
                         </div>
                     </div>
             </div>
-            <div className="w-full h-[4.5rem] bg-[#212121] flex items-center text-white justify-between px-[6.31rem]">
+            <div className="w-full md:h-[4.5rem] h-[3rem] bg-[#212121] flex items-center text-white justify-between px-[1rem] md:px-[6.31rem]">
                 <div className="">
-                    <div className="w-[12.44513rem] h-[1.44rem]">
-                    <Link to="/"><img className="object-contain w-full h-full" src={"/img/LOGO.png"} alt="logo"/></Link> 
+                    <div className="md:w-[12.44513rem] md:h-[1.44rem] w-[6rem] h-[1.44rem]">
+                       <Link to={`/`}><img className="object-contain w-full h-full" src={"/img/LOGO.png"} alt="logo"/></Link> 
                     </div>
                 </div>
                 <div>
-                   <div className="h-[2.25rem] w-[31.5rem] py-[0.5rem] px-[0.75rem] flex items-center relative"> 
+                   <div className="h-[2.25rem] w-[31.5rem] py-[0.5rem] px-[0.75rem] md:flex items-center relative hidden "> 
                         <FontAwesomeIcon icon={faSearch} className="absolute px-2 text-black"/>
                         <input type="text" placeholder="Search here" className="text-black rounded-[0.375rem] w-full py-[0.5rem] pl-[30px] text-[0.875rem]"/>
                    </div> 
                 </div>
-                <div className="flex items-center space-x-6">
+                <div className="flex items-center md:space-x-6 space-x-2">
                    <div className="flex items-center">
-                        <FontAwesomeIcon icon={faCartShopping} className="w-[1.5rem] h-[1.5rem]"/>
+                        <FontAwesomeIcon icon={faCartShopping} className="md:w-[1.5rem] md:h-[1.5rem] w-[0.95rem] "/>
                         <p className="text-[0.75rem] px-[0.5rem]">Cart</p>
                    </div>
                    <div className="flex items-center">
-                        <FontAwesomeIcon icon={faCircleUser} className="w-[1.5rem] h-[1.5rem]"/>
+                        <FontAwesomeIcon icon={faCircleUser} className="md:w-[1.5rem] md:h-[1.5rem] w-[0.95rem]"/>
                         <p className="text-[0.75rem] px-[0.5rem]">My Account</p>
-                        <FontAwesomeIcon icon={faChevronDown} className="w-[1rem] h-[1rem]" />
+                        <FontAwesomeIcon icon={faChevronDown} className="w-[1rem] h-[1rem] hidden md:block" />
                    </div>
                 </div>
 
             </div>
 
-            <div className="w-full h-[4.5rem] bg-[#800020] flex items-center text-white px-[15.5rem]">
+
+            <div className="w-full h-[4.5rem] bg-[#800020] md:flex items-center text-white px-[15.5rem] hidden">
                 
                 <ul className="flex items-center w-full justify-between">
 
@@ -112,64 +113,65 @@ export default function Layout(){
 
             <Outlet />
             <section>
-                <div>
-                    <div className="px-[6.44rem]">
-                        <h3 className="text-[1.25rem font-[garamond] font-normal text-[#333] leading-[1.25rem] ">Shop By Brands</h3>     
+                <div className="max-w-[1440px] mx-auto">
+                    <div className="md:px-[6.44rem] px-[1rem]">
+                        <h3 className="text-[1.25rem font-[garamond] font-normal text-[#333] md:leading-[1.25rem] ">Shop By Brands</h3>     
                     </div>
-                    <div className="flex justify-between items-center px-[6.44rem] py-[2.5rem]">
-                    <div className="w-[18.4375rem] h-[14.5625rem]">
-                        <img className="object-contain w-full h-full" src={"/img/Frame1.png"} alt="img1" />
-                    </div>
-                    <div className="w-[18.4375rem] h-[14.5625rem]">
-                        <img className="object-contain w-full h-full" src={"/img/Frame2.png"} alt="img1" />
-                    </div>
-                    <div className="w-[18.4375rem] h-[14.5625rem]">
-                        <img className="object-contain w-full h-full" src={"/img/Frame3.png"} alt="img1" />
-                    </div>
-                    <div className="w-[18.4375rem] h-[14.5625rem]">
-                        <img className="object-contain w-full h-full" src={"/img/Frame4.png"} alt="img1" />
-                    </div>
+                    <div className="flex justify-between items-center md:px-[6.44rem] px-[1rem] md:py-[2.5rem]">
+                        <div className="md:w-[18.4375rem] w-[5rem] md:h-[14.5625rem]">
+                            <img className="object-contain w-full h-full" src={"/img/Frame1.png"} alt="img1" />
+                        </div>
+                        <div className="md:w-[18.4375rem]  w-[5rem] md:h-[14.5625rem]">
+                            <img className="object-contain w-full h-full" src={"/img/Frame2.png"} alt="img1" />
+                        </div>
+                        <div className="md:w-[18.4375rem]  w-[5rem] md:h-[14.5625rem]">
+                            <img className="object-contain w-full h-full" src={"/img/Frame3.png"} alt="img1" />
+                        </div>
+                        <div className="md:w-[18.4375rem]  w-[5rem] md:h-[14.5625rem]">
+                            <img className="object-contain w-full h-full" src={"/img/Frame4.png"} alt="img1" />
+                        </div>
                     </div>
                 </div>
             </section>
-                 <section>
-                    <div className="px-[6.44rem] pt-[4.94rem]">
-                        <div className="py-[]">
-                            <h3 className="text-[1.25rem font-[garamond] font-normal text-[#333] leading-[1.25rem] ">Shop By Categories</h3>     
-                        </div>
-                    <div className="flex flex-wrap justify-between space-y-2 py-[2.5rem]">
+            <section>
+                <div className="md:px-[6.44rem] px-[1rem] max-w-[1440px] mx-auto pt-[1.5rem] md:pt-[4.94rem]">
+                <div className="md:px-[6.44rem] px-[1rem]">
+                        <h3 className="text-[1.25rem font-[garamond] font-normal text-[#333] md:leading-[1.25rem] ">Shop By Categories</h3>     
+                    </div>
+                    <div className="flex flex-wrap justify-between md:py-[2.5rem] py-[1rem]">
                         {categoryimage.map((item)=>(
-                            <Category key={item.key} img={item.img} />
+                            <Category key={item.id} img={item.img} />
                         ))}
                     </div>
                 </div>
                     
                     
             </section>
-            <section className="bg-[#800020] h-[38.375rem]">
-                <div className="flex h-full px-[6.25rem]">
+                    
+            <section className="bg-[#800020] md:h-[38.375rem] h-[15rem]">
+                <div className="flex h-full max-w-[1440px] mx-auto  md:px-[6.25rem] px-[1rem]">
                     <div className="flex flex-col justify-center h-full">
                         <div className="">
-                            <h2 className="text-[3.75rem] font-normal leading-[3.9375rem] font-[garamond] text-[#FFFFFF]">
+                            <h2 className="md:text-[3.75rem] text-[1.5rem] font-normal md:leading-[3.9375rem] font-[garamond] text-[#FFFFFF]">
                                 Share with us on our Social Channels using <span className="italic">#Glambeauty</span> for a chance to feature!
                             </h2>
                         </div>
                         <div className="text-white mt-[1.13rem] gap-[0.12rem]">
                             <button className="w-[4.03rem] h-[3.03rem]">
-                                <FontAwesomeIcon className="w-[2.375rem] h-[2.375rem] object-contain" icon={faX} />
+                                <FontAwesomeIcon className="md:w-[2.375rem] md:h-[2.375rem] w-[1.5rem] h-[1.5rem] object-contain" icon={faX} />
                             </button>
                             <button className="w-[4.03rem] h-[3.03rem]">
-                                <FontAwesomeIcon className="w-[2.375rem] h-[2.375rem] object-contain" icon={faTiktok} />
+                                <FontAwesomeIcon className="md:w-[2.375rem] md:h-[2.375rem] w-[1.5rem] h-[1.5rem] object-contain" icon={faTiktok} />
                             </button>
                             <button className="w-[4.03rem] h-[3.03rem]">
-                                <FontAwesomeIcon className="w-[2.375rem] h-[2.375rem] object-contain" icon={faInstagram} />
+                                <FontAwesomeIcon className="md:w-[2.375rem] md:h-[2.375rem] w-[1.5rem] h-[1.5rem] object-contain" icon={faInstagram} />
                             </button>
                             <button className="w-[4.03rem] h-[3.03rem]">
-                                <FontAwesomeIcon className="w-[2.375rem] h-[2.375rem] object-contain" icon={faFacebook} />
+                                <FontAwesomeIcon className="md:w-[2.375rem] md:h-[2.375rem] w-[1.5rem] h-[1.5rem] object-contain" icon={faFacebook} />
                             </button>
                         </div>
                     </div>
-                    <div className="flex justify-center h-full w-full items-center space-x-[0.75rem]">
+                    <div className="md:flex justify-center h-full w-full items-center space-x-[0.75rem] hidden">
                         <div className="space-y-[1.13rem]">
                             <div className="w-[16.125rem] h-[14.25rem]">
                                 <img className="object-centain w-full h-full" src="/img/share1.png" alt="img "/>
@@ -189,25 +191,25 @@ export default function Layout(){
                     </div>
                 </div>
             </section>
-             <footer className="bg-[#000] text-[#FFF]">
-                <div className="pt-[3.12rem] px-[6.19rem]">
+            <footer className="bg-[#000] text-[#FFF]">
+                <div className="md:pt-[3.12rem] pt-[1.5rem] max-w-[1440px] mx-auto  md:px-[6.19rem] px-[1rem]">
                     <div className="flex flex-col justify-center items-center">
-                        <h2 className="font-[garamond] text-[1.875rem] font-normal leading-[2.375rem] uppercase">Be the first!</h2>
-                        <p className="text-[1rem] color-[#DFDFDF] font-[400] leading-[1.875rem] font-[inter]">Sign up now to receive the latest news, offers and exclusive drops</p>
+                        <h2 className="font-[garamond] md:text-[1.875rem] text-[1.5rem] font-normal leading-[2.375rem] uppercase">Be the first!</h2>
+                        <p className="md:text-[1rem] text-[0.5rem] color-[#DFDFDF] font-[400] leading-[1.875rem] font-[inter]">Sign up now to receive the latest news, offers and exclusive drops</p>
                     </div>
-                    <div className="flex gap-[1rem] justify-center items-cente mt-[1.25rem] ">
+                    <div className="flex gap-[1rem] justify-center items-center mt-[1.25rem] ">
                         <form>
-                            <input type="text" placeholder="Enter your email" name="subscribe" className="w-[22.5rem] h-[3rem] rounded-[0.5rem] border-[#D0D5DD] text-[#000] px-[0.875rem] py-[0.75rem]"  />
+                            <input type="text" placeholder="Enter your email" name="subscribe" className="md:w-[22.5rem] md:h-[3rem] rounded-[0.5rem] border-[#D0D5DD] text-[#000] px-[0.875rem] py-[0.75rem]" />
                         </form>
                         <button className="bg-[#FFF] w-[6.875rem] h-[3rem] rounded-[0.5rem] text-[#000] font-[garamond]">Subscribe</button>
                     </div>
                     <div className="text-center">
-                        <p className="font-[inter] text-[0.875rem] font-normal leading-[1.25rem]">We care about your data in our <a href="#" className="underline"> privacy policy.</a></p>
+                        <p className="font-[inter] md:text-[0.875rem] text-[0.5rem] font-normal leading-[1.25rem]">We care about your data in our <a href="#" className="underline"> privacy policy.</a></p>
                     </div>
-                    <div className="flex justify-between py-[5.56rem]">
+                    <div className="flex flex-wrap justify-between gap-3 md:gap-0 md:py-[5.56rem] py-[3rem] px-[1rem] md:px-0">
                         <div>
-                            <ul className="font-[garamond] text-[1rem] leading-[1.5rem] text-[#FEEFE2] space-y-[0.75rem]">
-                                <li className="text-[1.5rem] leading-[1.25rem]"><a href="#">GlamBeauty</a></li>
+                            <ul className="font-[garamond] md:text-[1rem] text-[0.8rem] leading-[1.5rem] text-[#FEEFE2] space-y-[0.75rem] ">
+                                <li className="md:text-[1.5rem] text-[1rem] leading-[1.25rem]">GlamBeauty</li>
                                 <li><a href="#">About Us</a></li>
                                 <li><a href="#">Partnership & Supplies</a></li>
                                 <li><a href="#">Sitemap</a></li>
@@ -221,8 +223,8 @@ export default function Layout(){
                             
                         </div>
                         <div>
-                            <ul className="font-[garamond] text-[1rem] leading-[1.5rem] text-[#FEEFE2] space-y-[0.75rem]">
-                                <li className="text-[1.5rem] leading-[1.25rem]"><a href="#">Legal</a></li>
+                            <ul className="font-[garamond] md:text-[1rem] text-[0.8rem] leading-[1.5rem] text-[#FEEFE2] space-y-[0.75rem]">
+                                <li className="md:text-[1.5rem] text-[1rem] leading-[1.25rem]">Legal</li>
                                 <li><a href="#">Terms & Conditions</a></li>
                                 <li><a href="#">Privacy Policy</a></li>
                                 <li><a href="#">Cookie Policy (EU)</a></li>
@@ -231,8 +233,8 @@ export default function Layout(){
                             
                         </div>
                         <div>
-                            <ul className="font-[garamond] text-[1rem] leading-[1.5rem] text-[#FEEFE2] space-y-[0.75rem]">
-                                <li className="text-[1.5rem] leading-[1.25rem]"><a href="#">Help & Information</a></li>
+                            <ul className="font-[garamond] md:text-[1rem] text-[0.8rem] leading-[1.5rem] text-[#FEEFE2] space-y-[0.75rem]">
+                                <li className="md:text-[1.5rem] text-[1rem] leading-[1.25rem]">Help & Information</li>
                                 <li><a href="#">Delivery Information</a></li>
                                 <li><a href="#">Returns Policy</a></li>
                                 <li><a href="#">FAQs</a></li>
@@ -241,16 +243,16 @@ export default function Layout(){
                             
                         </div>
                         <div>
-                            <ul className="font-[garamond] text-[1rem] leading-[1.5rem] text-[#FEEFE2] space-y-[0.75rem]">
-                                <li className="text-[1.5rem] leading-[1.25rem]"><a href="#">Contact Us</a></li>
+                            <ul className="font-[garamond] md:text-[1rem] text-[0.8rem] leading-[1.5rem] text-[#FEEFE2] space-y-[0.75rem]">
+                                <li className="md:text-[1.5rem] text-[1rem] leading-[1.25rem]">Contact Us</li>
                                 <li><FontAwesomeIcon icon={faPhone} className="pr-[0.5rem]"/>07999385318, 07865432665</li>
                                 <li><FontAwesomeIcon icon={faEnvelope} className="pr-[0.5rem]" /><a href="mailto:glambeautyy@gmail.com"></a>Glambeauty@gmail.com</li>
                             </ul>
                             
                         </div>
                         <div>
-                            <ul className="font-[garamond] text-[1rem] leading-[1.5rem] text-[#FEEFE2] space-y-[0.75rem]">
-                                <li className="text-[1.5rem] leading-[1.25rem]"><a href="#">Our International sites</a></li>
+                            <ul className="font-[garamond] md:text-[1rem] text-[0.8rem] leading-[1.5rem] text-[#FEEFE2] space-y-[0.75rem]">
+                                <li className="md:text-[1.5rem] text-[1rem] leading-[1.25rem]"><a href="#">Our International sites</a></li>
                                     <ul className="flex gap-[1rem]">
                                         <li><img src="/img/us1.png" alt="img" className="w-[1.875rem] h-[1.875rem]"/></li>
                                         <li><img src="/img/fr1.png" alt="img" className="w-[1.875rem] h-[1.875rem]"/></li>
@@ -260,9 +262,9 @@ export default function Layout(){
                                         <li><img src="/img/es1.png" alt="img" className="w-[1.875rem] h-[1.875rem]"/></li>
                                     </ul>
                                     <ul className="space-y-[1rem]">
-                                    <li className="text-[1.5rem] leading-[1.25rem]">Supported Payments</li>
+                                    <li className="md:text-[1.5rem] text-[1rem] leading-[1.25rem]">Supported Payments</li>
                                     <ul className="flex gap-[1rem]">
-                                        <li><img src="/img/apple-pay-png1.png" alt="img" className="w-[2.5rem] h-[1.5625rem]"/></li>
+                                        <li><img src="/img/apple-pay-png1.png" alt="img" className="md:w-[2.5rem] h-[1.5625rem]"/></li>
                                         <li><img src="/img/pay-pal-png1.png" alt="img" className="w-[2.5rem] h-[1.5625rem]"/></li>
                                         <li><img src="/img/visa-png1.png" alt="img" className="w-[2.5rem] h-[1.5625rem]"/></li>
                                         <li><img src="/img/mastercard-png1.png" alt="img" className="w-[2.5rem] h-[1.5625rem]"/></li>
@@ -273,13 +275,13 @@ export default function Layout(){
                         </div>
                     </div>
                    <hr className="text-white"/>
-                   <div className="flex justify-between py-[2rem]">
-                    <div className="w-[12.44513rem] h-[1.44rem]">
+                   <div className="flex justify-between items-center md:py-[2rem] py-[0.5rem]">
+                    <div className="md:w-[12.44513rem] w-[5rem] h-[1.44rem]">
                         <img className="object-contain w-full h-full" src="/img/LOGO.png"/>
                     </div>
-                    <div className="flex">
+                    <div className="flex md:text-[1.5rem] text-[0.6rem]">
                         <h3>GLAMBEAUTY &copy; 2024.</h3>
-                        <p>All Right Reserved</p>
+                        <p> All Right Reserved</p>
                     </div>
                    </div>
                 </div>
