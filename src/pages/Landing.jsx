@@ -13,6 +13,8 @@ import {Link} from "react-router-dom";
 
 
 
+
+
 export default function Landing(){
     return(
         <main className="px-0 justify-center">
@@ -166,8 +168,11 @@ export default function Landing(){
             </section>
             <section>
                 <div className="max-w-[1440px] mx-auto">
-                    <div className="md:px-[6.44rem] px-[1rem]">
-                        <h3 className="text-[1.25rem font-[garamond] font-normal text-[#333] md:leading-[1.25rem] ">Shop By Brands</h3>     
+                <div className="md:px-[6.44rem] px-[1rem] md:pt-[3rem] pt-[1rem]">
+                        <div className="border-b-[3px] md:w-[9rem] w-[7rem] md:pb-2">
+                                <h3 className="md:text-[1.25rem] font-[garamond] font-normal text-[#333] md:leading-[1.25rem]">Shop By Brands</h3>    
+                        </div>
+                         
                     </div>
                     <div className="flex justify-between items-center md:px-[6.44rem] px-[1rem] md:py-[2.5rem]">
                         <div className="md:w-[18.4375rem] w-[5rem] md:h-[14.5625rem]">
@@ -262,10 +267,13 @@ export default function Landing(){
                 </div>
             </section>
             <section>
-                <div className="md:px-[6.44rem] px-[1rem] max-w-[1440px] mx-auto pt-[1.5rem] md:pt-[4.94rem]">
-                <div className="md:px-[6.44rem] px-[1rem]">
-                        <h3 className="text-[1.25rem font-[garamond] font-normal text-[#333] md:leading-[1.25rem] ">Shop By Categories</h3>     
-                    </div>
+            <div className="md:px-[6.44rem] px-[1rem] max-w-[1440px] mx-auto pt-[1.5rem] md:pt-[2.94rem]">
+                    <div className="md:pt-[3rem] pt-[1rem]">
+                            <div className="border-b-[3px] md:w-[10rem] w-[8rem] md:pb-2">
+                                    <h3 className="md:text-[1.25rem] font-[garamond] font-normal text-[#333] md:leading-[1.25rem]">Shop By Categories</h3>    
+                            </div>
+                            
+                        </div>
                     <div className="flex flex-wrap justify-between md:py-[2.5rem] py-[1rem]">
                         {categoryimage.map((item)=>(
                             <Category key={item.id} img={item.img} />
@@ -398,8 +406,7 @@ export default function Landing(){
 
 }
 
-
-const intro = [
+export const intro = [
     {
         id:"intro1",
         img:"/img/truck-icon1.png",
@@ -505,7 +512,7 @@ export const newProduct=[
         details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
     }
 ]
-const categoryimage=[
+export const categoryimage=[
     {
         id:"image1",
         img:"/img/category1.png"
@@ -540,4 +547,7 @@ const categoryimage=[
     },
 
 ]
+
+
+
 
