@@ -16,7 +16,8 @@
 // export default router;
 
 import Landing from "../pages/Landing";
-import Layout from "../pages/Layout"
+import Layout from "../pages/Layout";
+import Login from "../pages/Login";
 import ProductDetails from "../pages/ProductDetails"
 import {BrowserRouter,Routes, Route} from "react-router-dom";
 import ScrollToTop from "../components/atoms/ScrollToTop";
@@ -27,6 +28,7 @@ return (
     <BrowserRouter>
       <ScrollToTop />
         <Routes>
+            <Route path="/Login" element={<Login />} />
             <Route path="/" element={<Landing/>} />
             <Route path="/" element={<Layout />} >
               

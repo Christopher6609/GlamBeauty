@@ -8,7 +8,7 @@ import Button from "../components/atoms/Button";
 import { faFacebook, faInstagram, faLinkedin, faTiktok } from "@fortawesome/free-brands-svg-icons";
 import Category from "../components/molecules/Category";
 import {Link} from "react-router-dom";
-
+import { useParams } from "react-router-dom";
 
 
 
@@ -16,6 +16,11 @@ import {Link} from "react-router-dom";
 
 
 export default function Landing(){
+    const params = useParams();
+
+    console.log(params);
+
+
     return(
         <main className="px-0 justify-center">
             <div className="md:h-[4.5rem] h-[2rem] bg-[#121212] flex justify-end space-x-[0.75rem] md:space-x-[7.31rem] px-[1rem] md:px-[6.31rem] ">
@@ -199,7 +204,7 @@ export default function Landing(){
                     </div>
                     <div className="md:px-[7.25rem] px-[1rem] md:py-[2.63rem]">
                         <div className="flex flex-wrap justify-between">
-                            {newProduct.map((item)=>(
+                            {Product.map((item)=>(
                                 <Link to={`/productdetails/${item.id}`} key={item.id}>
                                     <NewProduct img={item.img} productname={item.productname} price={item.price} productdescription={item.description} reviews={item.reviews}/>
                                 </Link>
@@ -438,79 +443,117 @@ export const intro = [
 
 ]
 
-export const newProduct=[
+export const Product=[
     {
-        id:"newproduct1",
+        id:"product1",
         img:"/img/newproduct1.png",
         productname:"CLINIQUE LIQUID",
         price:"$50",
         description:"Anti- Blemish Liquid Makeup Solutions and Face Cream 600ml.",
         reviews:"30+ Reviews",
+        category: "newProduct",
         details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
     },
     {
-        id:"newproduct2",
+        id:"product2",
         img:"/img/newproduct2.png",
         productname:"evelin vody wash",
         price:"$54",
         description:"99% Natural Aloe Vera Multifunctional Body and Face Gel 400ml.",
         reviews:"30+ Reviews",
+        category: "newProduct",
         details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
     },
     {
-        id:"newproduct3",
+        id:"product3",
         img:"/img/newproduct3.png",
         productname:"camelo",
         price:"$35",
         description:"Anti Damage Keratin Mask for Damaged Hair 200ml.",
         reviews:"30+ Reviews",
+        category:"newProduct",
         details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
     },
     {
-        id:"newproduct4",
+        id:"product4",
         img:"/img/newproduct4.png",
         productname:"mon paris",
         price:"$80",
         description:"The best elegant perfume for women",
         reviews:"30+ Reviews",
+        category: "newProduct",
         details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
     },
      {
-        id:"newproduct5",
+        id:"product5",
         img:"/img/newproduct5.png",
         productname:"court heels",
         price:"$70",
         description:"The best elegant perfume for women",
         reviews:"30+ Reviews",
+        category: "newProduct",
         details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
     },
      {
-        id:"newproduct6",
+        id:"product6",
         img:"/img/newproduct6.png",
         productname:"CLARINS DOUBLE SERUM",
         price:"$60",
         description:"nti- Blemish Liquid Makeup Solutions and Face Cream 600ml.",
         reviews:"30+ Reviews",
+        category:"newProduct",
         details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
     },
     {
-        id:"newproduct7",
+        id:"product7",
         img:"/img/newproduct7.png",
         productname:"Essence",
         price:"$90",
         description:"Anti Damage Keratin Mask for Damaged Hair 200ml.",
         reviews:"30+ Reviews",
+        category: "newProduct",
         details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
     },
     {
-        id:"newproduct8",
+        id:"product8",
         img:"/img/newproduct8.png",
         productname:"mon paris",
         price:"$60",
         description:"The best elegant body wash for women",
         reviews:"30+ Reviews",
+        category: "newProduct",
         details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
-    }
+    },
+    {
+        id:"product9",
+        img:"/img/newproduct4.png",
+        productname:"mon paris",
+        price:"$80",
+        description:"The best elegant perfume for women",
+        reviews:"30+ Reviews",
+        category: "trending",
+        details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
+    },
+     {
+        id:"product10",
+        img:"/img/newproduct5.png",
+        productname:"court heels",
+        price:"$70",
+        description:"The best elegant perfume for women",
+        reviews:"30+ Reviews",
+        category: "trending",
+        details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
+    },
+     {
+        id:"product11",
+        img:"/img/newproduct6.png",
+        productname:"CLARINS DOUBLE SERUM",
+        price:"$60",
+        description:"nti- Blemish Liquid Makeup Solutions and Face Cream 600ml.",
+        reviews:"30+ Reviews",
+        category:"trending",
+        details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
+    },
 ]
 export const categoryimage=[
     {

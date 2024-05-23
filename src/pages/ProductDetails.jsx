@@ -1,14 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {  faCartPlus, faCircleArrowLeft, faCircleArrowRight, faMinus, faPlus, faStar } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router-dom";
-import {newProduct} from "./Landing";
-import { useEffect, useState } from "react";
+import {Product} from "./Landing";
+import {  useState } from "react";
 
-    const ProductDetails = () => {
-        const [product, setProduct] = useState({});
-        const [count, setCount] = useState(1)
+   export default function ProductDetails(){
+        
+         const [count, setCount] = useState(1)
     
-        const params = useParams();
+         const params = useParams();
 
         function incrementCount(){
             setCount(prevCount => prevCount + 1);
@@ -18,14 +18,9 @@ import { useEffect, useState } from "react";
                 setCount(prevCount => prevCount - 1);
             }
             
-        }
-        useEffect(()=> {
-             const getProduct = newProduct.find((product )=> product.id === params.id)
-        
-            setProduct({...getProduct})
-        },[params.id])
-
-
+         }
+       
+    const getProduct = Product.find((product) => product.id === params.id)
 
     return (
         < >
@@ -50,17 +45,17 @@ import { useEffect, useState } from "react";
                     </div>
                     <div>
                         <div className="md:w-[29rem] w-full md:h-[38.0625rem]">
-                            <img className="object-contain w-full h-full" src={product.img} alt="image" />
+                            <img className="object-contain w-full h-full" src={getProduct.img} alt="image" />
                         </div>
                     </div>
                     <div>
                         <div className=" space-y-[1.13rem] mt-5 md:mt-0">
                             <div className="space-y-[1.13rem] text-center md:text-start">
                             <h1 className="md:text-[2rem] text-[1.5rem] font-[garamond] text-[#101928] font-normal leading-[2.4rem] tracking-[-0.04rem] uppercase ">
-                                {product.productname}
+                                {getProduct.productname}
                             </h1>
                             <p className="text-[0.875rem] text-[#1D2739] font-[garamond] leading-[1.26875rem]  ">
-                              {product.details}   
+                              {getProduct.details}   
                             </p>
                             </div>
                             
@@ -74,12 +69,12 @@ import { useEffect, useState } from "react";
 
                                         </div>
                                     <div className="text-[0.875rem] font-normal leading-[1.25rem] font-[garamond]">
-                                        <p>{product.reviews}</p>
+                                        <p>{getProduct.reviews}</p>
                                     </div>
                                     
                                 </div>
                                 <div>
-                                    <p className="md:text-[2rem] text-[1.5rem] font-[garamond] md:leading-[1.5rem] font-normal text-[#101928]">{product.price}<sup className="md:text-[1.5rem] text-[1rem] ">.00</sup></p>
+                                    <p className="md:text-[2rem] text-[1.5rem] font-[garamond] md:leading-[1.5rem] font-normal text-[#101928]">{getProduct.price}<sup className="md:text-[1.5rem] text-[1rem] ">.00</sup></p>
                                 </div>
                                 <div className="space-y-[0.25rem]">
                                     <label htmlFor="shades" className="md:text-[1.25rem] text-[1rem] font-[garamond] leading-[1.5rem] tracking-[-0.025rem]">Choose Shade:</label>
@@ -161,5 +156,3 @@ import { useEffect, useState } from "react";
         </>
     )
 }
-
-export default ProductDetails;

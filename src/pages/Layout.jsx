@@ -299,35 +299,35 @@ export default function Layout(){
 
 const categoryimage=[
     {
-        key:"image1",
+        id:"image1",
         img:"/img/category1.png"
     },
     {
-        key:"image2",
+        id:"image2",
         img:"/img/category2.png"
     },
     {
-        key:"image3",
+        id:"image3",
         img:"/img/category3.png"
     },
     {
-        key:"image4",
+        id:"image4",
         img:"/img/category4.png"
     },
     {
-        key:"image5",
+        id:"image5",
         img:"/img/category5.png"
     },
     {
-        key:"image6",
+        id:"image6",
         img:"/img/category6.png"
     },
     {
-        key:"image7",
+        id:"image7",
         img:"/img/category7.png"
     },
     {
-        key:"image8",
+        id:"image8",
         img:"/img/category8.png"
     },
 
