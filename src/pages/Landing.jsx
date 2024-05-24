@@ -23,7 +23,7 @@ export default function Landing(){
 
     return(
         <main className="px-0 justify-center">
-            <div className="md:h-[4.5rem] h-[2rem] bg-[#121212] flex justify-end space-x-[0.75rem] md:space-x-[7.31rem] px-[1rem] md:px-[6.31rem] ">
+            <div className="md:h-[4.5rem] h-[2rem] bg-[#121212] flex justify-end space-x-[0.75rem] md:space-x-[7.31rem] px-[1rem] md:px-[6.31rem]">
                     <div className="text-[#FFF] flex items-center md:space-x-[3rem]">
                         <marquee> <p className=" text-[0.5rem] md:text-[0.75rem] leading-[-0.00375rem] ">Upto 50% off Selected Brands + Free UK delivery on Orders above $10</p></marquee> 
                         <a href="#" className="md:text-[0.75rem] text-[0.5rem] leading-[1.00375rem] tracking-[-0.00375rem] hidden md:block">Shop Now</a>
@@ -65,7 +65,7 @@ export default function Landing(){
 
             </div>
 
-            <div className="w-full h-[4.5rem] bg-[#800020] md:flex items-center text-white px-[15.5rem] hidden">
+            <div className="w-full h-[4.5rem] bg-[#800020] md:flex items-center text-white px-[15.5rem] hidden ">
                 
                 <ul className="flex items-center w-full justify-between">
 
@@ -196,7 +196,7 @@ export default function Landing(){
                 </div>
             </section>
             <section>
-                <div className="max-w-[1440px] mx-auto">
+                <div className="max-w-[1440px] mx-auto ">
                     <div className="flex justify-between md:px-[21.5rem] pt-[1rem] md:py-0 px-[3rem] border-b-[1px] md:text-[1.25rem] text-[1rem] font-[garamond] md:leading-[1.25rem] font-normal text-[#333] ">
                         <h3 className="md:border-b-[3px] border-b-[2px] md:pb-2">New Products</h3>
                         <h3>Trending</h3>
@@ -300,9 +300,9 @@ export default function Landing(){
                                 <Button text="Shop Now" style={{backgroundColor:'black'}} />
                             </div>
                         </div>
-                    <div className="flex justify-center h-full w-full items-center space-x-[0.75rem]">
+                    <div className="flex justify-center h-full w-full items-center">
                         <div className="hidden md:block">
-                            <div className="w-[43.625rem] h-[33.375rem]">
+                            <div className="w-[41rem] h-[33.375rem]">
                                 <img className="object-centain w-full h-full" src="/img/lady.png" alt="img "/>
                             </div>
                         </div>

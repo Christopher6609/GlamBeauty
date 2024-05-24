@@ -40,6 +40,9 @@ export default function Login(){
                         <div className="py-[1.5rem]">
                             <p className="text-[0.875rem]">Don&apos;t have an account yet? <span className="text-[#800020]"> <Link>Create Account</Link></span> </p>
                         </div>
+                        <div className="w-full">
+                        <Link to={`/`}> <button  className="bg-[#000] text-center w-full text-[#FFF] px-[1.5rem] py-[1rem] rounded-[1.875rem]" >Continue without Login</button></Link>
+                                </div>
                     </div>
                 </div>
             </div>
