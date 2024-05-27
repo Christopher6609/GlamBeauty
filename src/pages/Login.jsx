@@ -5,11 +5,14 @@ import { Link } from "react-router-dom"
 export default function Login(){
     return (
         <main>
-            <div className="flex h-screen">
-                <div className="w-1/2 h-full ">
+            <div className="flex">
+                <div className="w-1/2 h-screen ">
                     <img className="w-full h-full" src="/img/loginImage.png"  alt="Login image" />
                 </div>
-                <div className="flex flex-col items-center justify-center w-1/2">
+                <div className="flex flex-col items-center justify-center w-1/2 overflow-auto">
+                    <div className="py-[1rem] text-[1rem] text-center w-full ">
+                        <p>Login currently unavaliable <span className="text-[green]">kindly use the Continue without Login button</span></p>
+                    </div>
                     <div className="flex flex-col items-center w-[27.625rem] ">
                         <div className="space-y-[0.5rem] w-full">
                             <h1 className="font-[garamond] font-[700] text-[2.25rem] leading-[2.7rem] tracking-[-0.09rem]">Login to Account</h1>
@@ -38,10 +41,10 @@ export default function Login(){
                              <button className=" text-center w-full text-[#000] px-[1.5rem] py-[1rem] rounded-[0.375rem] border-[2px] border-[#D0D5DD]" > <FontAwesomeIcon className="px-[1rem]" icon={faGoogle} />Continue with Google</button>
                         </div>
                         <div className="py-[1.5rem]">
-                            <p className="text-[0.875rem]">Don&apos;t have an account yet? <span className="text-[#800020]"> <Link>Create Account</Link></span> </p>
+                            <p className="text-[0.875rem]">Don&apos;t have an account yet? <span className="text-[#800020]"> <Link to={`/signup`}>Create Account</Link></span> </p>
                         </div>
                         <div className="w-full">
-                        <Link to={`/`}> <button  className="bg-[#000] text-center w-full text-[#FFF] px-[1.5rem] py-[1rem] rounded-[1.875rem]" >Continue without Login</button></Link>
+                        <Link to={`/Home`}> <button  className="bg-[#000] text-center w-full text-[#FFF] px-[1.5rem] py-[1rem] rounded-[1.875rem]" >Continue without Login</button></Link>
                                 </div>
                     </div>
                 </div>

@@ -21,6 +21,7 @@ import Login from "../pages/Login";
 import ProductDetails from "../pages/ProductDetails"
 import {BrowserRouter,Routes, Route} from "react-router-dom";
 import ScrollToTop from "../components/atoms/ScrollToTop";
+import SignUp from "../pages/SignUp";
 
 
 export default function Router(){
@@ -28,10 +29,13 @@ return (
     <BrowserRouter>
       <ScrollToTop />
         <Routes>
-            <Route path="/Login" element={<Login />} />
-            <Route path="/" element={<Landing/>} />
-            <Route path="/" element={<Layout />} >
-              
+            <Route path="/" element={<Login />} />
+            <Route path="/Home" element={<Landing />} />
+            <Route path="/signup" element={<SignUp />} />
+           
+            
+            
+            <Route path="/" element={<Layout />} > 
               <Route path="productdetails/:id" element={<ProductDetails />}/>
             </Route>
             
