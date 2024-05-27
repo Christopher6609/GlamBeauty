@@ -10,7 +10,7 @@ import {  useState } from "react";
     
          const params = useParams();
 
-        function incrementCount(){
+       function incrementCount(){
             setCount(prevCount => prevCount + 1);
         }
         function decrementCount(){
@@ -24,7 +24,7 @@ import {  useState } from "react";
 
     return (
         < >
-            <section className="md:py-[4.41rem] py-[2rem] px-[1rem] md:px-[6.31rem]">
+            <section className="md:py-[4.41rem] py-[2rem] px-[1rem] md:px-[6.31rem] max-w-[1440px] mx-auto">
                 <div className="md:flex items-center justify-center">
                     <div className="flex md:block justify-center">
                         <div className="md:w-[7.625rem] w-[3rem] md:h-[6.6125rem] h-[2.5rem]">
@@ -111,7 +111,7 @@ import {  useState } from "react";
                                     <h3 className="md:text-[1.25rem] text-[1rem] font-[garamond] md:leading-[1.5rem] tracking-[-0.025rem]">Quantity:</h3>
                                     <div>
                                         <div className="flex items-center gap-[1rem]">
-                                            <div className="flex px-[1rem] md:py-[1.12rem] py-[0.5rem] md:w-[11rem] w-[8rem] justify-between border-[2px] rounded-[0.5rem] items-center liner">
+                                            <div className="flex px-[1rem] md:py-[1.12rem] py-[0.5rem] md:w-[11rem] w-[8rem] justify-between border-[2px] rounded-[0.5rem] items-center">
                                                <button onClick ={decrementCount}><FontAwesomeIcon className="md:w-[1.5rem] md:h-[1.5rem] w-[1rem] h-[1rem]" icon={faMinus} /></button> 
                                                 <p>{count}</p>
                                                 <button onClick={incrementCount}><FontAwesomeIcon className="w-[1.5rem] h-[1.5rem] text-[red]" icon={faPlus} /></button>

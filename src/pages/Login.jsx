@@ -5,9 +5,12 @@ import { Link } from "react-router-dom"
 export default function Login(){
     return (
         <main>
-            <div className="flex">
-                <div className="w-1/2 h-screen ">
-                    <img className="w-full h-full" src="/img/loginImage.png"  alt="Login image" />
+            <div className="flex ">
+                <div className="w-1/2 h-screen">
+                    <div className="w-full h-full">
+                        <img className="w-full h-full" src="/img/loginImage.png"  alt="Login image" />
+                    </div>
+                    
                 </div>
                 <div className="flex flex-col items-center justify-center w-1/2 overflow-auto">
                     <div className="py-[1rem] text-[1rem] text-center w-full ">

@@ -22,6 +22,7 @@ import ProductDetails from "../pages/ProductDetails"
 import {BrowserRouter,Routes, Route} from "react-router-dom";
 import ScrollToTop from "../components/atoms/ScrollToTop";
 import SignUp from "../pages/SignUp";
+import Cart from "../pages/Cart";
 
 
 export default function Router(){
@@ -32,6 +33,7 @@ return (
             <Route path="/" element={<Login />} />
             <Route path="/Home" element={<Landing />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/cart" element={<Cart/>} />
            
             
             
