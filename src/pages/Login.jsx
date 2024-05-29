@@ -7,7 +7,7 @@ export default function Login(){
     return (
         <main>
             <div className="md:flex">
-                <div className="md:w-1/2 h-screen hidden md:flex">
+                <div className=" h-screen w-2/6 hidden md:flex">
                     <div className="w-full h-full">
                         <img className="w-full h-full" src="/img/loginImage.png"  alt="Login image" />
                     </div>
@@ -36,7 +36,7 @@ export default function Login(){
                     </div>
                 </div>
                 </div>
-                <div className="flex flex-col items-center justify-center md:w-1/2 w-full md:overflow-auto">
+                <div className="flex flex-col items-center justify-center w-4/6 md:overflow-auto">
                     <div className="py-[1rem] md:text-[1rem] text-[0.875rem] text-center w-full ">
                         <p>Login currently unavaliable <span className="text-[green]">kindly use the Continue without Login button</span></p>
                     </div>

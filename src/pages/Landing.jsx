@@ -19,27 +19,11 @@ import Heading from "../components/molecules/Heading";
 
 
 export default function Landing(){
-    
-        const [menuVisible, setMenuVisible] = useState(false);
-
-        const openCart = () => {
-            setMenuVisible(true);
-        };
-        const closeCart = () => {
-            setMenuVisible(false);
-        };
-
-    
 
     return(
        
         <main className="px-0 justify-center">
            <div><Heading /></div>
-            
-            
-
-            
-
             <section>
                 <div className="md:h-[40.3125rem] h-[30rem] w-full " style={{ backgroundImage: "url(/img/Frame53034.png)"}}>
                     <div className="flex-col flex md:gap-[1.5rem] gap-[1rem] justify-center items-center h-full">

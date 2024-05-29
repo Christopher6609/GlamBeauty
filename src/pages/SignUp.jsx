@@ -7,7 +7,7 @@ export default function SignUp(){
     return (
         <main>
             <div className="md:flex">
-                <div className="md:w-1/2 h-screen hidden md:flex">
+                <div className="md:w-2/6 h-screen hidden md:flex">
                 <div className="md:w-[12.44513rem] md:h-[1.44rem] w-[6rem] h-[1.44rem] absolute top-[7.56rem] left-[5.44rem]">
                        <Link to={`/`}><img className="object-contain w-full h-full" src={"/img/LOGO.png"} alt="logo"/></Link> 
                     </div>
@@ -39,7 +39,7 @@ export default function SignUp(){
                     </div>
                 </div>
                 </div>
-                <div className="flex flex-col items-center justify-center md:w-1/2 md:overflow-auto">
+                <div className="flex flex-col items-center justify-center md:w-4/6 md:overflow-auto">
                 <div className="py-[1rem] md:text-[1rem] text-[0.875rem] text-center w-full ">
                         <p>Account creation currently unavaliable <span className="text-[green]">kindly use the Continue without Signup button</span></p>
                     </div>
