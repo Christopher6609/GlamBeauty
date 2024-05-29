@@ -23,6 +23,7 @@ import {BrowserRouter,Routes, Route} from "react-router-dom";
 import ScrollToTop from "../components/atoms/ScrollToTop";
 import SignUp from "../pages/SignUp";
 import Cart from "../pages/Cart";
+import Checkout from "../pages/Checkout";
 
 
 export default function Router(){
@@ -34,6 +35,7 @@ return (
             <Route path="/Home" element={<Landing />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/cart" element={<Cart/>} />
+            <Route path="/checkout" element={<Checkout/>} />
            
             
             

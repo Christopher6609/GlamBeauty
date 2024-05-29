@@ -74,7 +74,7 @@ export default function Cart(props){
                             <p className="md:text-[2rem] text-[1rem] text-[#101928] leading-[1.5rem] font-[700]">$52<sup>.00</sup></p>
                         </div>
                         <hr />
-                        <button className="bg-[#000] w-full py-[1rem] px-[1.5rem] rounded-[1.875rem] text-[#FFF] font-[garamond] text-[1rem]">Checkout</button>
+                        <Link to={`/checkout`}><button className="bg-[#000] w-full py-[1rem] px-[1.5rem] rounded-[1.875rem] text-[#FFF] font-[garamond] text-[1rem]">Checkout</button></Link>
                        <Popup trigger = {<button className="bg-[#FFF] w-full py-[1rem] px-[1.5rem] rounded-[1.875rem] text-[#000] font-[garamond] text-[1rem] border-[1px] border-[#000]">Continue Shopping</button>} modal nested>
                            {close => (
                                 <div className="bg-[#000] w-full rounded-[1rem] px-[1rem] py-[1rem]">
