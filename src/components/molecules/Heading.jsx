@@ -10,7 +10,7 @@ export default function Heading(){
 
 
     return (
-        <div>
+        <div className="">
              <div className="md:h-[4.5rem] h-[2rem] bg-[#121212] flex justify-end space-x-[0.75rem] md:space-x-[7.31rem] px-[1rem] md:px-[6.31rem] ">
                     <div className="text-[#FFF] flex items-center md:space-x-[3rem]">
                         <marquee> <p className=" text-[0.5rem] md:text-[0.75rem] leading-[-0.00375rem] ">Upto 50% off Selected Brands + Free UK delivery on Orders above $10</p></marquee> 

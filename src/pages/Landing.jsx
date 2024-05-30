@@ -1,6 +1,6 @@
 import { faClose, faCaretDown, faChevronDown, faEnvelope, faPhone, faSearch, faShoppingBag, faX, } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
+//import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 import IntroCard from "../components/molecules/IntroCard";
 import { faBoxOpen, faCreditCard, faHeadset, faTruck } from "@fortawesome/free-solid-svg-icons";
 import NewProduct from "../components/molecules/NewProduct";
@@ -20,6 +20,22 @@ import Footer from "../components/molecules/Footer";
 
 
 export default function Landing(){
+
+    // const Product = Product.filter((item) => item.category === "newProduct").map((item)=>(
+    //     <Link to={`/productdetails/${item.id}`} key={item.id}>
+    //         <NewProduct img={item.img} productname={item.productname} price={item.price} productdescription={item.description} reviews={item.reviews}/>
+    //     </Link>
+    // ))
+
+    // function trending(){
+    //     const Product = Product.filter((item) => item.category === "trending").map((item)=>(
+    //         <Link to={`/productdetails/${item.id}`} key={item.id}>
+    //             <NewProduct img={item.img} productname={item.productname} price={item.price} productdescription={item.description} reviews={item.reviews}/>
+    //         </Link>
+    //     ))
+    // }
+    
+
 
     return(
        
@@ -49,7 +65,7 @@ export default function Landing(){
                 
             </section>
             <section>
-                <div className="bg-[#800020] md:py-[2.81rem] py-[1rem] md:px-[6.25rem] px-[1rem]">
+                <div className="bg-[#800020] md:py-[2.81rem] py-[1rem] lg:px-[6.25rem] px-[1rem]">
                     <div className="flex justify-between items-center max-w-[1440px] mx-auto">
                         {intro.map((item)=> (
                         <IntroCard key={item.id} text={item.text} img={item.img} subtext={item.subtext} icon={item.icon} />
@@ -62,7 +78,7 @@ export default function Landing(){
                 </div>
             </section>
             <section>
-                <div className="flex justify-between md:px-[6.25rem] px-[1rem] md:py-[1.88rem] py-[2rem] max-w-[1440px] mx-auto ">
+                <div className="flex justify-between lg:px-[6.25rem] px-[1rem] md:py-[1.88rem] py-[2rem] max-w-[1440px] mx-auto ">
                     <div className="md:w-[25.1875rem] w-[17rem] md:h-[18.375rem]">
                         <img className="object-contain w-full h-full" src={"/img/picture1.png"} alt="img1" />
                     </div>
@@ -76,13 +92,13 @@ export default function Landing(){
             </section>
             <section>
                 <div className="max-w-[1440px] mx-auto">
-                <div className="md:px-[6.44rem] px-[1rem] md:pt-[3rem] pt-[1rem]">
+                <div className="lg:px-[6.44rem] px-[1rem] md:pt-[3rem] pt-[1rem]">
                         <div className="border-b-[3px] md:w-[9rem] w-[7rem] md:pb-2">
                                 <h3 className="md:text-[1.25rem] font-[garamond] font-normal text-[#333] md:leading-[1.25rem]">Shop By Brands</h3>    
                         </div>
                          
                     </div>
-                    <div className="flex justify-between items-center md:px-[6.44rem] px-[1rem] md:py-[2.5rem]">
+                    <div className="flex justify-between items-center lg:px-[6.44rem] px-[1rem] md:py-[2.5rem]">
                         <div className="md:w-[18.4375rem] w-[5rem] md:h-[14.5625rem]">
                             <img className="object-contain w-full h-full" src={"/img/Frame1.png"} alt="img1" />
                         </div>
@@ -100,18 +116,18 @@ export default function Landing(){
             </section>
             <section>
                 <div className="max-w-[1440px] mx-auto ">
-                    <div className="flex justify-between md:px-[21.5rem] pt-[1rem] md:py-0 px-[3rem] border-b-[1px] md:text-[1.25rem] text-[1rem] font-[garamond] md:leading-[1.25rem] font-normal text-[#333] ">
-                        <h3 className="md:border-b-[3px] border-b-[2px] md:pb-2">New Products</h3>
-                        <h3>Trending</h3>
-                        <h3>Best Selling</h3>
+                    <div className="flex justify-between lg:px-[21.5rem] pt-[1rem] md:py-0 px-[3rem] border-b-[1px] md:text-[1.25rem] text-[1rem] font-[garamond] md:leading-[1.25rem] font-normal text-[#333] ">
+                        <button className="md:border-b-[3px] border-b-[2px] md:pb-2">New Products</button>
+                        <button>Trending</button>
+                        <button>Best Selling</button>
                     </div>
                     <div className="md:px-[7.25rem] px-[1rem] md:py-[2.63rem]">
                         <div className="flex flex-wrap justify-between">
+                            {/* {Product} */}
                             {Product.map((item)=>(
                                 <Link to={`/productdetails/${item.id}`} key={item.id}>
                                     <NewProduct img={item.img} productname={item.productname} price={item.price} productdescription={item.description} reviews={item.reviews}/>
                                 </Link>
-                            
                             ))}
                         </div>
                         <div className="my-[2.5rem] flex flex-col justify-center items-center">
@@ -154,7 +170,7 @@ export default function Landing(){
                             </button>
                         </div>
                     </div>
-                    <div className="md:flex justify-center h-full w-full items-center space-x-[0.75rem] hidden">
+                    <div className="lg:flex justify-center h-full w-full items-center space-x-[0.75rem] hidden">
                         <div className="space-y-[1.13rem]">
                             <div className="w-[16.125rem] h-[14.25rem]">
                                 <img className="object-centain w-full h-full" src="/img/share1.png" alt="img "/>
@@ -175,7 +191,7 @@ export default function Landing(){
                 </div>
             </section>
             <section>
-            <div className="md:px-[6.44rem] px-[1rem] max-w-[1440px] mx-auto pt-[1.5rem] md:pt-[2.94rem]">
+            <div className="lg:px-[6.44rem] px-[1rem] max-w-[1440px] mx-auto pt-[1.5rem] md:pt-[2.94rem]">
                     <div className="md:pt-[3rem] pt-[1rem]">
                             <div className="border-b-[3px] md:w-[10rem] w-[8rem] md:pb-2">
                                     <h3 className="md:text-[1.25rem] font-[garamond] font-normal text-[#333] md:leading-[1.25rem]">Shop By Categories</h3>    
@@ -191,8 +207,8 @@ export default function Landing(){
                     
                     
             </section>
-            <section className="bg-[#FEEFE2] md:h-[33.375rem] h-[20rem]">
-            <div className="flex h-full max-w-[1440px] mx-auto md:px-[6.25rem] px-[1rem]">
+            <section className="bg-[#FEEFE2] md:h-[33.375rem] h-[20rem] max-w-[1440px] mx-auto">
+            <div className="flex h-full md:px-[6.25rem] px-[1rem] ">
                 <div className="flex flex-col justify-center h-full items-center md:items-start">
                             <div className="md:w-[41.125rem] w-[22rem] ">
                                 <h2 className="md:text-[3.4375rem] text-[2rem] font-normal md:leading-[4.9843rem] font-[garamond] text-[#000]">
@@ -203,8 +219,8 @@ export default function Landing(){
                                 <Button text="Shop Now" style={{backgroundColor:'black'}} />
                             </div>
                         </div>
-                    <div className="flex justify-center h-full w-full items-center">
-                        <div className="hidden md:block">
+                    <div className="lg:flex justify-center h-full w-full items-center hidden">
+                        <div className="">
                             <div className="w-[41rem] h-[33.375rem]">
                                 <img className="object-centain w-full h-full" src="/img/lady.png" alt="img "/>
                             </div>
@@ -221,7 +237,7 @@ export default function Landing(){
     </Popup>)} */}
         </main>
     )
-   
+    
 }
 
 export const intro = [
@@ -255,6 +271,8 @@ export const intro = [
     }
 
 ]
+
+
 
 export const Product=[
     {
