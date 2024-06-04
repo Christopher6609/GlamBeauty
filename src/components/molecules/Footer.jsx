@@ -6,8 +6,8 @@ import React from 'react'
 const Footer = () => {
   return (
     <div>
-      <footer className="bg-[#000] text-[#FFF]">
-                <div className="pt-[3.12rem] max-w-[1440px] mx-auto  md:px-[6.19rem] px-[1rem]">
+      <footer className="bg-[#000] text-[#FFF] w-full">
+                <div className="pt-[3.12rem] max-w-[1440px] mx-auto md:px-[6.19rem] px-[1rem]">
                     <div className="flex flex-col justify-center items-center">
                         <h2 className="font-[garamond] md:text-[1.875rem] text-[1.5rem] font-normal leading-[2.375rem] uppercase">Be the first!</h2>
                         <p className="md:text-[1rem] text-[0.5rem] color-[#DFDFDF] font-[400] leading-[1.875rem] font-[inter]">Sign up now to receive the latest news, offers and exclusive drops</p>

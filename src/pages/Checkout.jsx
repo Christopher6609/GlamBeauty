@@ -8,15 +8,15 @@ const Checkout = () => {
   return (
     <div>
         <Heading />
-        <section className='py-[3rem] sm:px-[6.37rem] px-[0.5rem] sm:max-w-[1440px] sm:mx-auto'> 
-        <div className="sm:flex space-y-[0.875rem] sm:space-y-0 justify-between">
-                <div className=' sm:w-[49rem] flex flex-col sm:gap-[2rem] gap-[0.875rem]'>
+        <section className='py-[3rem] md:px-[6.37rem] px-[0.5rem] md:max-w-[1440px] md:mx-auto'> 
+        <div className="md:flex space-y-[0.875rem] md:space-y-0 justify-between">
+                <div className=' md:w-[49rem] flex flex-col sm:gap-[2rem] gap-[0.875rem]'>
                     <div className='w-full sm:py-[2rem] py-[1.5rem] space-y-[1.5rem] border-[1px] border-[#E4E7EC] rounded-[0.625rem] sm:p-[2rem] p-[0.5rem]'>
                         <div className='flex items-center space-x-[0.5rem]'>
                             <h2 className='font-[garamond] sm:text-[1.5rem] text-[1rem]'>Purchase Summary</h2> <FontAwesomeIcon icon={faCircleInfo}/>
                         </div>
                         <div className='sm:space-y-[1.5rem] space-y-[1rem]'>
-                        <div className="flex sm:h-[10.8125rem] sm:w-[45.25rem] justify-between sm:px-[1rem]  py-[0.2rem]">
+                        <div className="flex sm:h-[10.8125rem] md:w-[45.25rem] justify-between sm:px-[1rem]  py-[0.2rem]">
                                     <div className="sm:w-[13.125rem] sm:h-[10.8125rem] w-[5rem] h-[5rem] border-[1px] rounded-[0.625rem] border-[#EAECF0]">
                                         <img className="object-contain w-full h-full " src="/img/blemish.png" />
                                     </div>
@@ -42,7 +42,7 @@ const Checkout = () => {
                                     
                                 </div>
                                 <hr />
-                                <div className="flex sm:h-[10.8125rem] sm:w-[45.25rem] justify-between sm:px-[1rem]  py-[0.2rem]">
+                                <div className="flex sm:h-[10.8125rem] md:w-[45.25rem] justify-between sm:px-[1rem]  py-[0.2rem]">
                                     <div className="sm:w-[13.125rem] sm:h-[10.8125rem] w-[5rem] h-[5rem] border-[1px] rounded-[0.625rem] border-[#EAECF0]">
                                         <img className="object-contain w-full h-full " src="/img/clinique.png" />
                                     </div>
@@ -78,14 +78,14 @@ const Checkout = () => {
                         </div>
                         <div className="">
                             <form className='space-y-[1.25rem]'>
-                                <div className='sm:flex justify-between space-y-[1.25rem] sm:space-y-0'>
+                                <div className='md:flex justify-between space-y-[1.25rem] md:space-y-0'>
                                     <div className="flex flex-col">
                                         <label htmlFor="firstname" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">First Name:</label>
-                                        <input type="text" name="firstname" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] sm:w-[21.125rem] w-full p-[1rem]" />
+                                        <input type="text" name="firstname" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] md:w-[21.125rem] w-full p-[1rem]" />
                                     </div>
                                     <div className="flex flex-col">
                                         <label htmlFor="lastname" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">Last Name:</label>
-                                        <input type="text" name="lastname" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] sm:w-[21.125rem] w-full p-[1rem]" />
+                                        <input type="text" name="lastname" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] md:w-[21.125rem] w-full p-[1rem]" />
                                     </div>
                                 </div>
                                 <div className=' w-full space-y-[1.25rem]'>
@@ -98,24 +98,24 @@ const Checkout = () => {
                                         <input type="text" name="email" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] w-full p-[1rem]" />
                                     </div>
                                 </div>
-                                <div className='sm:flex justify-between space-y-[1.25rem] sm:space-y-0'>
+                                <div className='md:flex justify-between space-y-[1.25rem] sm:space-y-0'>
                                     <div className="flex flex-col">
                                         <label htmlFor="city" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">City/Town:</label>
-                                        <input type="text" name="city" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] sm:w-[21.125rem] w-full p-[1rem]" />
+                                        <input type="text" name="city" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] md:w-[21.125rem] w-full p-[1rem]" />
                                     </div>
                                     <div className="flex flex-col">
                                         <label htmlFor="zipcode" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">Zip Code:</label>
-                                        <input type="text" name="zipcode" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] sm:w-[21.125rem] w-full p-[1rem]" />
+                                        <input type="text" name="zipcode" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] md:w-[21.125rem] w-full p-[1rem]" />
                                     </div>
                                 </div>
-                                <div className='sm:flex justify-between space-y-[1.25rem] sm:space-y-0'>
+                                <div className='md:flex justify-between space-y-[1.25rem] md:space-y-0'>
                                     <div className="flex flex-col">
                                         <label htmlFor="phone" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">Mobile Number:</label>
-                                        <input type="number" name="phone" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] sm:w-[21.125rem] w-full p-[1rem]" />
+                                        <input type="number" name="phone" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] md:w-[21.125rem] w-full p-[1rem]" />
                                     </div>
                                     <div className="flex flex-col">
                                         <label htmlFor="altnumber" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">Alternate Mobile Number:</label>
-                                        <input type="text" name="altnumber" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] sm:w-[21.125rem] w-full p-[1rem]" />
+                                        <input type="text" name="altnumber" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] md:w-[21.125rem] w-full p-[1rem]" />
                                     </div>
                                 </div>
                                 
@@ -126,7 +126,7 @@ const Checkout = () => {
                     </div>
                 </div>
                 <div>
-                <div className='sm:w-[26.25rem] border-[1px] border-[#E4E7EC] rounded-[0.625rem] sm:p-[2rem] p-[1rem]'>
+                <div className='md:w-[26.25rem] border-[1px] border-[#E4E7EC] rounded-[0.625rem] sm:p-[2rem] p-[1rem]'>
                     <div className='space-y-[1.75rem]'>
                         <div className='flex items-center space-x-[0.5rem]'>
                             <h2 className='font-[garamond] sm:text-[1.5rem] text-[1rem]'>Payment Information</h2>
@@ -171,11 +171,11 @@ const Checkout = () => {
                                         <div className='flex justify-between'>
                                             <div className="flex flex-col">
                                                 <label htmlFor="expiry" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">Expiry Date:</label>
-                                                <input type="date" name="expiry" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] sm:w-[12rem] p-[1rem]" />
+                                                <input type="date" name="expiry" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] md:w-[12rem] p-[1rem]" />
                                             </div>
                                             <div className="flex flex-col">
                                                 <label htmlFor="cvv" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">CVV:</label>
-                                                <input type="number" name="cvv" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] w-[9.25rem] p-[1rem]" placeholder="123" />
+                                                <input type="number" name="cvv" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] md:w-[9.25rem] p-[1rem]" placeholder="123" />
                                             </div>
                                         </div>
                                 </form>
