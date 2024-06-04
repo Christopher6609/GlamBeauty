@@ -8,30 +8,30 @@ const Checkout = () => {
   return (
     <div>
         <Heading />
-        <section className='py-[3rem] px-[6.37rem] max-w-[1440px] mx-auto'> 
-        <div className="flex justify-between">
-                <div className=' w-[49.25rem] flex flex-col gap-[2rem]'>
-                    <div className='w-full py-[2rem] space-y-[1.5rem] border-[1px] border-[#E4E7EC] rounded-[0.625rem] p-[2rem]'>
+        <section className='py-[3rem] sm:px-[6.37rem] px-[0.5rem] sm:max-w-[1440px] sm:mx-auto'> 
+        <div className="sm:flex space-y-[0.875rem] sm:space-y-0 justify-between">
+                <div className=' sm:w-[49rem] flex flex-col sm:gap-[2rem] gap-[0.875rem]'>
+                    <div className='w-full sm:py-[2rem] py-[1.5rem] space-y-[1.5rem] border-[1px] border-[#E4E7EC] rounded-[0.625rem] sm:p-[2rem] p-[0.5rem]'>
                         <div className='flex items-center space-x-[0.5rem]'>
-                            <h2 className='font-[garamond] text-[1.5rem]'>Purchase Summary</h2> <FontAwesomeIcon icon={faCircleInfo}/>
+                            <h2 className='font-[garamond] sm:text-[1.5rem] text-[1rem]'>Purchase Summary</h2> <FontAwesomeIcon icon={faCircleInfo}/>
                         </div>
-                        <div className='space-y-[1.5rem]'>
-                        <div className="flex md:h-[10.8125rem] w-[45.25rem] justify-between px-[1rem] py-[0.2rem]">
-                                    <div className="md:w-[13.125rem] md:h-[10.8125rem] w-[7rem] h-[8rem] border-[1px] rounded-[0.625rem] border-[#EAECF0]">
+                        <div className='sm:space-y-[1.5rem] space-y-[1rem]'>
+                        <div className="flex sm:h-[10.8125rem] sm:w-[45.25rem] justify-between sm:px-[1rem]  py-[0.2rem]">
+                                    <div className="sm:w-[13.125rem] sm:h-[10.8125rem] w-[5rem] h-[5rem] border-[1px] rounded-[0.625rem] border-[#EAECF0]">
                                         <img className="object-contain w-full h-full " src="/img/blemish.png" />
                                     </div>
-                                    <div className="flex flex-col justify-between md:py-[2rem] py-[1rem] w-[16.18rem]">
+                                    <div className="flex flex-col justify-between sm:py-[2rem] sm:w-[16.18rem] w-[13rem]">
                                         <div >
-                                            <h3 className="md:text-[1.25rem] text-[1rem] font-[garamond] leading-[1.8125rem] text-[#101928] ">
+                                            <h3 className="sm:text-[1.25rem] text-[0.85rem] font-[garamond] leading-[1.8125rem] text-[#101928] ">
                                             Clinique Anti-Blemish Solutions Liquid Makeup 30ml
                                             </h3>
                                         </div>
                                         
                                         <div>
-                                            <p className="text-[0.875rem] text-[#475367] leading-[1.26875rem]">Shade: Black</p>
+                                            <p className="sm:text-[0.875rem] text-[0.5rem] text-[#475367] leading-[1.26875rem]">Shade: Black</p>
                                         </div>
                                         <div>
-                                            <p className="text-[0.875rem] text-[#475367] leading-[1.26875rem]">Size: Medium</p>
+                                            <p className="sm:text-[0.875rem] text-[0.5rem] text-[#475367] leading-[1.26875rem]">Size: Medium</p>
                                         </div>
                                     </div>
                                     <div className='flex items-center'>
@@ -42,22 +42,22 @@ const Checkout = () => {
                                     
                                 </div>
                                 <hr />
-                                <div className="flex md:h-[10.8125rem] w-[45.25rem] justify-between px-[1rem] py-[0.2rem]">
-                                    <div className="md:w-[13.125rem] md:h-[10.8125rem] w-[7rem] h-[8rem] border-[1px] rounded-[0.625rem] border-[#EAECF0]">
+                                <div className="flex sm:h-[10.8125rem] sm:w-[45.25rem] justify-between sm:px-[1rem]  py-[0.2rem]">
+                                    <div className="sm:w-[13.125rem] sm:h-[10.8125rem] w-[5rem] h-[5rem] border-[1px] rounded-[0.625rem] border-[#EAECF0]">
                                         <img className="object-contain w-full h-full " src="/img/clinique.png" />
                                     </div>
-                                    <div className="flex flex-col justify-between md:py-[2rem] py-[1rem] w-[16.18rem]">
+                                    <div className="flex flex-col justify-between sm:py-[2rem] sm:w-[16.18rem] w-[13rem]">
                                         <div >
-                                            <h3 className="md:text-[1.25rem] text-[1rem] font-[garamond] leading-[1.8125rem] text-[#101928] ">
+                                            <h3 className="sm:text-[1.25rem] text-[0.85rem] font-[garamond] leading-[1.8125rem] text-[#101928] ">
                                             Clinique Anti-Blemish Solutions Liquid Makeup 30ml
                                             </h3>
                                         </div>
                                         
                                         <div>
-                                            <p className="text-[0.875rem] text-[#475367] leading-[1.26875rem]">Shade: Black</p>
+                                            <p className="sm:text-[0.875rem] text-[0.5rem] text-[#475367] leading-[1.26875rem]">Shade: Black</p>
                                         </div>
                                         <div>
-                                            <p className="text-[0.875rem] text-[#475367] leading-[1.26875rem]">Size: Large</p>
+                                            <p className="sm:text-[0.875rem] text-[0.5rem] text-[#475367] leading-[1.26875rem]">Size: Large</p>
                                         </div>
                                     </div>
                                     <div className='flex items-center'>
@@ -72,20 +72,20 @@ const Checkout = () => {
                             
                         </div>
                     </div>
-                    <div className='w-full py-[2rem] space-y-[1.5rem] border-[1px] border-[#E4E7EC] rounded-[0.625rem] p-[2rem]'>
+                    <div className='w-full sm:py-[2rem] py-[1.5rem] space-y-[1.5rem] border-[1px] border-[#E4E7EC] rounded-[0.625rem] sm:p-[2rem] p-[0.5rem]'>
                         <div className='flex items-center space-x-[0.5rem]'>
-                            <h2 className='font-[garamond] text-[1.5rem]'>Delivery Information</h2>
+                            <h2 className='font-[garamond] sm:text-[1.5rem] text-[1rem]'>Delivery Information</h2>
                         </div>
                         <div className="">
                             <form className='space-y-[1.25rem]'>
-                                <div className='flex justify-between'>
+                                <div className='sm:flex justify-between space-y-[1.25rem] sm:space-y-0'>
                                     <div className="flex flex-col">
                                         <label htmlFor="firstname" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">First Name:</label>
-                                        <input type="text" name="firstname" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] w-[21.125rem] p-[1rem]" />
+                                        <input type="text" name="firstname" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] sm:w-[21.125rem] w-full p-[1rem]" />
                                     </div>
                                     <div className="flex flex-col">
                                         <label htmlFor="lastname" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">Last Name:</label>
-                                        <input type="text" name="lastname" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] w-[21.125rem] p-[1rem]" />
+                                        <input type="text" name="lastname" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] sm:w-[21.125rem] w-full p-[1rem]" />
                                     </div>
                                 </div>
                                 <div className=' w-full space-y-[1.25rem]'>
@@ -98,24 +98,24 @@ const Checkout = () => {
                                         <input type="text" name="email" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] w-full p-[1rem]" />
                                     </div>
                                 </div>
-                                <div className='flex justify-between'>
+                                <div className='sm:flex justify-between space-y-[1.25rem] sm:space-y-0'>
                                     <div className="flex flex-col">
                                         <label htmlFor="city" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">City/Town:</label>
-                                        <input type="text" name="city" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] w-[21.125rem] p-[1rem]" />
+                                        <input type="text" name="city" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] sm:w-[21.125rem] w-full p-[1rem]" />
                                     </div>
                                     <div className="flex flex-col">
                                         <label htmlFor="zipcode" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">Zip Code:</label>
-                                        <input type="text" name="zipcode" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] w-[21.125rem] p-[1rem]" />
+                                        <input type="text" name="zipcode" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] sm:w-[21.125rem] w-full p-[1rem]" />
                                     </div>
                                 </div>
-                                <div className='flex justify-between'>
+                                <div className='sm:flex justify-between space-y-[1.25rem] sm:space-y-0'>
                                     <div className="flex flex-col">
                                         <label htmlFor="phone" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">Mobile Number:</label>
-                                        <input type="number" name="phone" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] w-[21.125rem] p-[1rem]" />
+                                        <input type="number" name="phone" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] sm:w-[21.125rem] w-full p-[1rem]" />
                                     </div>
                                     <div className="flex flex-col">
                                         <label htmlFor="altnumber" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">Alternate Mobile Number:</label>
-                                        <input type="text" name="altnumber" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] w-[21.125rem] p-[1rem]" />
+                                        <input type="text" name="altnumber" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] sm:w-[21.125rem] w-full p-[1rem]" />
                                     </div>
                                 </div>
                                 
@@ -126,13 +126,13 @@ const Checkout = () => {
                     </div>
                 </div>
                 <div>
-                <div className='w-[26.25rem] border-[1px] border-[#E4E7EC] rounded-[0.625rem] p-[2rem]'>
+                <div className='sm:w-[26.25rem] border-[1px] border-[#E4E7EC] rounded-[0.625rem] sm:p-[2rem] p-[1rem]'>
                     <div className='space-y-[1.75rem]'>
                         <div className='flex items-center space-x-[0.5rem]'>
-                            <h2 className='font-[garamond] text-[1.5rem]'>Payment Information</h2>
+                            <h2 className='font-[garamond] sm:text-[1.5rem] text-[1rem]'>Payment Information</h2>
                         </div>
                         <div>
-                            <h2 className='font-[garamond] text-[1.5rem]'>Supported Payments</h2>
+                            <h2 className='font-[garamond] sm:text-[1.5rem] text-[1rem]'>Supported Payments</h2>
                             <ul className="flex gap-[1rem]">
                                 <li><img src="/img/apple-pay-png1.png" alt="img" className="md:w-[2.5rem] h-[1.5625rem]"/></li>
                                 <li><img src="/img/pay-pal-png1.png" alt="img" className="w-[2.5rem] h-[1.5625rem]"/></li>
@@ -141,11 +141,11 @@ const Checkout = () => {
                             </ul>
                         </div>
                         <hr />
-                        <div className='space-y-[1.25rem]'>
-                            <h2 className='font-[garamond] text-[1.5rem]'>Choose Payment Method</h2>
+                        <div className='sm:space-y-[1.25rem] space-y-[0.5rem]'>
+                            <h2 className='font-[garamond] sm:text-[1.5rem]'>Choose Payment Method</h2>
                             <div>
                                 <form className=''>
-                                    <div className='flex flex-col gap-[1rem]'>
+                                    <div className='flex flex-col sm:gap-[1rem]'>
                                        <div><input type="radio" name="payment" /> Debit or Credit Card</div> 
                                        <div><input type="radio" name="payment"/> Pay on Delivery</div> 
                                     </div>
@@ -154,9 +154,9 @@ const Checkout = () => {
                             </div>
                         </div>
                         <hr />
-                        <div className='space-y-[1rem]'>
+                        <div className='sm:space-y-[1rem] space-y-[0.5rem]'>
                             <div className='flex items-center'>
-                                <h2 className='font-[garamond] text-[1.5rem]'>Enter Card Information</h2>
+                                <h2 className='font-[garamond] sm:text-[1.5rem]'>Enter Card Information</h2>
                             </div>
                             <div>
                                 <form className='space-y-[1rem]'>
@@ -171,7 +171,7 @@ const Checkout = () => {
                                         <div className='flex justify-between'>
                                             <div className="flex flex-col">
                                                 <label htmlFor="expiry" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">Expiry Date:</label>
-                                                <input type="date" name="expiry" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] w-[12rem] p-[1rem]" />
+                                                <input type="date" name="expiry" className="border-[1px] border-[#E4E7EC] rounded-[0.375rem] h-[3.5rem] sm:w-[12rem] p-[1rem]" />
                                             </div>
                                             <div className="flex flex-col">
                                                 <label htmlFor="cvv" className="font-[garamond] text-[0.875rem] leading-[1.26rem]">CVV:</label>
@@ -180,8 +180,8 @@ const Checkout = () => {
                                         </div>
                                 </form>
                             </div>
-                            <div>
-                                    <h2 className='font-[garamond] text-[1.5rem]'>Supported Payments</h2>
+                            <div className='space-y-[1rem]'>
+                                    <h2 className='font-[garamond] sm:text-[1.5rem] text-[1rem]'>Supported Payments</h2>
                                     <ul className="flex gap-[1rem]">
                                         <li><img src="/img/apple-pay-png1.png" alt="img" className="md:w-[2.5rem] h-[1.5625rem]"/></li>
                                         <li><img src="/img/pay-pal-png1.png" alt="img" className="w-[2.5rem] h-[1.5625rem]"/></li>
@@ -214,11 +214,11 @@ const Checkout = () => {
                         </div>
                         <div>
                             <div className='flex items-center space-x-[0.5rem]'>
-                                <h2 className='font-[garamond] text-[1.5rem]'>Apply Discount</h2>
+                                <h2 className='font-[garamond] sm:text-[1.5rem] text-[1rem]'>Apply Discount</h2>
                             </div>
                             <div className="flex gap-[1rem] justify-center items-center ">
                                 <form>
-                                    <input type="text" placeholder="Enter Coupon Code" name="coupon" className="md:w-[15.125rem] md:h-[3.5rem] rounded-[1.875rem] bg-[#F9FAFB] text-[#98A2B3] text-[0.875rem] p-[1rem]"  />
+                                    <input type="text" placeholder="Enter Coupon Code" name="coupon" className="sm::w-[15.125rem] md:h-[3.5rem] rounded-[1.875rem] bg-[#F9FAFB] text-[#98A2B3] text-[0.875rem] p-[1rem]"  />
                                 </form>
                                 <button className="bg-[#000] w-[6.375rem] h-[3.5rem] rounded-[1.875rem] text-[#FFF] font-[garamond] px-[1.5rem] py-[1rem]">Apply</button>
                             </div>
