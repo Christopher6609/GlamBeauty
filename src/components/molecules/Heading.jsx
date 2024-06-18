@@ -38,7 +38,7 @@ export default function Heading(){
                    <div className="h-[2.25rem] w-[31.5rem] py-[0.5rem] px-[0.75rem] md:flex items-center relative hidden "> 
                         <FontAwesomeIcon icon={faSearch} className="absolute px-2 text-black"/>
                        
-                        <input type="text" placeholder="Search here" className="text-black rounded-[0.375rem] w-full py-[0.5rem] pl-[30px] text-[0.875rem]"/>
+                        <input type="search" placeholder="Search here" className="text-black rounded-[0.375rem] w-full py-[0.5rem] pl-[30px] text-[0.875rem]"/>
                    </div> 
                 </div>
                 <div className="flex items-center md:space-x-6 space-x-2">
