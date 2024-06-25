@@ -2,12 +2,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 import { faCaretDown, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { signInWithGooglePopup } from "../utils/firebase/firebase";
+import { signInWithGooglePopup, createUserDocumentFromAuth } from "../utils/firebase/firebase";
 
 export default function SignUp(){
     const logGoogleUser = async () => {
         const {user} = await signInWithGooglePopup();
-        console.log(user);
+        createUserDocumentFromAuth(user)
+        //console.log(user);
     }
 
     return (
