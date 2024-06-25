@@ -2,8 +2,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 import { faCaretDown, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { signInWithGooglePopup } from "../utils/firebase/firebase";
 
 export default function SignUp(){
+    const logGoogleUser = async () => {
+        const {user} = await signInWithGooglePopup();
+        console.log(user);
+    }
+
     return (
         <main>
             <div className="md:flex">
@@ -75,7 +81,7 @@ export default function SignUp(){
                         </div>
                         <div className="w-full pb-[2rem] md:pb-0">
                         <div className="w-full">
-                             <button className=" text-center w-full text-[#000] px-[1.5rem] py-[1rem] rounded-[0.375rem] border-[2px] border-[#D0D5DD]" > <FontAwesomeIcon className="px-[1rem]" icon={faGoogle} />Sign up with Google</button>
+                             <button onClick={logGoogleUser} className=" text-center w-full text-[#000] px-[1.5rem] py-[1rem] rounded-[0.375rem] border-[2px] border-[#D0D5DD]" > <FontAwesomeIcon className="px-[1rem]" icon={faGoogle} />Sign up with Google</button>
                         </div>
                         <div className="py-[1.5rem] text-center">
                             <p className="text-[0.875rem]">Have an account? <span className="text-[#800020]"> <Link to="/">Log in</Link></span> </p>
