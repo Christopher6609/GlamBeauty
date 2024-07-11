@@ -1,9 +1,57 @@
 import { faGoogle } from "@fortawesome/free-brands-svg-icons"
 import { faCaretDown, faPhone } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import FormInput from "../components/atoms/FormInput"
 import { Link } from "react-router-dom"
+import { useState } from "react"
+import { signInWithGooglePopup, signUserInWithEmailAndPassword } from "../utils/firebase/firebase"
 
 export default function Login(){
+    const DefaultFormFields = {
+        email:'',
+        password:'',
+    }
+const [formFields, setFormFields] = useState(DefaultFormFields);
+const { email, password } = formFields;
+
+const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormFields({...formFields, [name]:value});
+}
+
+const formFieldsReset = () => {
+    setFormFields(DefaultFormFields);
+}
+
+const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try{
+        const response = await signUserInWithEmailAndPassword(email, password);
+        console.log(response);
+        formFieldsReset();
+    }catch(error){
+        switch(error.code){
+            case 'auth/invalid-credential' :
+                alert('Invalid Login Credentials');
+                break;
+            case 'auth/user-not-found':
+                alert('User not found');
+                break;
+            default:
+                console.log(error);
+        }
+    }
+    
+}
+
+const logInWithGoogle = async () => {
+    const {user} = await signInWithGooglePopup();
+
+    console.log(user);
+}
+
     return (
         <main>
             <div className="md:flex">
@@ -46,17 +94,26 @@ export default function Login(){
                             <p className="md:text-[0.875rem] text-[0.7rem] leading-[1.26rem] font-normal">Enter the email you used to purchase the access pass 🔐</p>
                         </div>
                         <div className="w-full pt-[3rem] ">
-                            <form className="space-y-[1rem]">
-                                <div className="flex flex-col w-full ">
-                                    <label htmlFor="email" className="font-[garamond] text-[0.875rem]">Email Address:</label>
-                                    <input type="text" name="email" className="h-[3.5rem] border-[2px] rounded-[0.375rem] border-[#D0D5DD] w-full" /> 
-                                </div>
-                                <div className="flex flex-col w-full ">
-                                    <label htmlFor="password" className="font-[garamond] text-[0.875rem]">Password:</label>
-                                    <input type="password" name="password" className="h-[3.5rem] border-[2px] rounded-[0.375rem] border-[#D0D5DD] w-full" /> 
-                                </div>
+                            <form onSubmit={handleSubmit} className="space-y-[1rem]">
+                            <FormInput 
+                            label="Email Address"
+                            type="email"
+                            name="email"
+                            value={email}
+                            onChange={handleChange}
+                            required
+                            />
+                             <FormInput 
+                            label="Password"
+                            type="password"
+                            name="password"
+                            value={password}
+                            onChange={handleChange}
+                            required
+                            />
+                                
                                 <div className="w-full">
-                                    <button className="bg-[#000] text-center w-full text-[#FFF] px-[1.5rem] py-[1rem] rounded-[1.875rem]" >Login</button>
+                                    <button type="submit" className="bg-[#000] text-center w-full text-[#FFF] px-[1.5rem] py-[1rem] rounded-[1.875rem]" >Login</button>
                                 </div>
                                 
                             </form>
@@ -67,7 +124,7 @@ export default function Login(){
                         </div>
                         <div className="w-full pb-[2rem] md:pb-0">
                         <div className="w-full">
-                             <button className=" text-center w-full text-[#000] px-[1.5rem] py-[1rem] rounded-[0.375rem] border-[2px] border-[#D0D5DD]" > <FontAwesomeIcon className="px-[1rem]" icon={faGoogle} />Continue with Google</button>
+                             <button onClick={logInWithGoogle} type="button" className=" text-center w-full text-[#000] px-[1.5rem] py-[1rem] rounded-[0.375rem] border-[2px] border-[#D0D5DD]" > <FontAwesomeIcon className="px-[1rem]" icon={faGoogle} />Continue with Google</button>
                         </div>
                         <div className="py-[1.5rem]">
                             <p className="text-[0.875rem]">Don&apos;t have an account yet? <span className="text-[#800020]"> <Link to={`/signup`}>Create Account</Link></span> </p>
