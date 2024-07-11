@@ -7,7 +7,7 @@ export default defineConfig({
   // vite.config.js
   build: {
     rollupOptions: {
-      external: ['firebase']
+      external: ['firebase/app']
     }
   }
 })

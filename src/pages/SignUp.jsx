@@ -13,7 +13,6 @@ export default function SignUp(){
         //console.log(user);
     }
 
-    
 
     const DefaultFormFields = {
         displayName:'',
@@ -30,6 +29,13 @@ export default function SignUp(){
 
         setFormFields({...formFields, [name]:value});
     }
+
+
+    const formFieldsReset = () => {
+        setFormFields(DefaultFormFields);
+    }
+
+
     const handleSubmit= async (event) => {
         event.preventDefault();
         if(password != confirmpassword){
@@ -39,6 +45,8 @@ export default function SignUp(){
             const {user} = await createAuthUserWithEmailAndPassword(email, password);
             await createUserDocumentFromAuth(user, {displayName});
             console.log(user);
+
+            formFieldsReset();
         }catch(error){
             if(error.code == "auth/email-already-in-use"){
                 alert("Email is currently in use by another user!");
@@ -101,6 +109,7 @@ export default function SignUp(){
                                 name="displayName"
                                 value={displayName}
                                 onChange={handleChange}
+                                required
                                 />
 
                                 <FormInput
@@ -109,6 +118,7 @@ export default function SignUp(){
                                 name="email"
                                 value={email}
                                 onChange={handleChange}
+                                required
                                 />
                                 <FormInput
                                 label="Password:" 
@@ -116,6 +126,7 @@ export default function SignUp(){
                                 name="password"
                                 value={password}
                                 onChange={handleChange}
+                                required
                                 />
                                  <FormInput
                                 label="Confirm Password:" 
@@ -123,6 +134,7 @@ export default function SignUp(){
                                 name="confirmpassword"
                                 value={confirmpassword}
                                 onChange={handleChange}
+                                required
                                 />
                                 <div className="w-full">
                                     <button  className="bg-[#000] text-center w-full text-[#FFF] px-[1.5rem] py-[1rem] rounded-[1.875rem]" >
@@ -137,7 +149,7 @@ export default function SignUp(){
                         </div>
                         <div className="w-full pb-[2rem] md:pb-0">
                         <div className="w-full">
-                             <button onClick={signUpWithGoogleUser} className=" text-center w-full text-[#000] px-[1.5rem] py-[1rem] rounded-[0.375rem] border-[2px] border-[#D0D5DD]" > <FontAwesomeIcon className="px-[1rem]" icon={faGoogle} />Sign up with Google</button>
+                             <button type="button" onClick={signUpWithGoogleUser} className=" text-center w-full text-[#000] px-[1.5rem] py-[1rem] rounded-[0.375rem] border-[2px] border-[#D0D5DD]" > <FontAwesomeIcon className="px-[1rem]" icon={faGoogle} />Sign up with Google</button>
                         </div>
                         <div className="py-[1.5rem] text-center">
                             <p className="text-[0.875rem]">Have an account? <span className="text-[#800020]"> <Link to="/">Log in</Link></span> </p>
