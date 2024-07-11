@@ -2,15 +2,53 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 import { faCaretDown, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { signInWithGooglePopup, createUserDocumentFromAuth } from "../utils/firebase/firebase";
+import FormInput from "../components/atoms/FormInput";
+import { signInWithGooglePopup, createUserDocumentFromAuth, createAuthUserWithEmailAndPassword} from "../utils/firebase/firebase";
+import { useState } from "react";
 
 export default function SignUp(){
-    const logGoogleUser = async () => {
+    const signUpWithGoogleUser = async () => {
         const {user} = await signInWithGooglePopup();
         createUserDocumentFromAuth(user)
         //console.log(user);
     }
 
+    
+
+    const DefaultFormFields = {
+        displayName:'',
+        email:'',
+        password:'',
+        confirmpassword:''
+    }
+
+    const [formFields, setFormFields] = useState(DefaultFormFields);
+    const {displayName, email,password,confirmpassword} = formFields;
+
+    const handleChange = (event) => {
+        const{name,value} = event.target;
+
+        setFormFields({...formFields, [name]:value});
+    }
+    const handleSubmit= async (event) => {
+        event.preventDefault();
+        if(password != confirmpassword){
+            alert("Password do not match!");
+        }
+        try{
+            const {user} = await createAuthUserWithEmailAndPassword(email, password);
+            await createUserDocumentFromAuth(user, {displayName});
+            console.log(user);
+        }catch(error){
+            if(error.code == "auth/email-already-in-use"){
+                alert("Email is currently in use by another user!");
+            }else{
+                console.log(error);
+            }
+
+           
+        }
+    }
     return (
         <main>
             <div className="md:flex">
@@ -56,21 +94,38 @@ export default function SignUp(){
                             <p className="text-[0.875rem] leading-[1.26rem] font-normal">Enter your Information below to continue</p>
                         </div>
                         <div className="w-full pt-[3rem] ">
-                            <form className="space-y-[1rem]">
-                                <div className="flex flex-col w-full ">
-                                    <label htmlFor="email" className="font-[garamond] text-[0.875rem]">Email Address:</label>
-                                    <input type="text" name="email" className="h-[3.5rem] border-[2px] rounded-[0.375rem] border-[#D0D5DD] w-full" /> 
-                                </div>
-                                <div className="flex flex-col w-full ">
-                                    <label htmlFor="password" className="font-[garamond] text-[0.875rem]">Password:</label>
-                                    <input type="password" name="password" className="h-[3.5rem] border-[2px] rounded-[0.375rem] border-[#D0D5DD] w-full" /> 
-                                </div>
-                                <div className="flex flex-col w-full ">
-                                    <label htmlFor="confirmpassword" className="font-[garamond] text-[0.875rem]"> Confirm Password:</label>
-                                    <input type="password" name="confirmpassword" className="h-[3.5rem] border-[2px] rounded-[0.375rem] border-[#D0D5DD] w-full" /> 
-                                </div>
+                            <form onSubmit={handleSubmit} className="space-y-[1rem]">
+                                <FormInput
+                                label="Username" 
+                                type="text"
+                                name="displayName"
+                                value={displayName}
+                                onChange={handleChange}
+                                />
+
+                                <FormInput
+                                label="Email Address:" 
+                                type="email"
+                                name="email"
+                                value={email}
+                                onChange={handleChange}
+                                />
+                                <FormInput
+                                label="Password:" 
+                                type="password"
+                                name="password"
+                                value={password}
+                                onChange={handleChange}
+                                />
+                                 <FormInput
+                                label="Confirm Password:" 
+                                type="password"
+                                name="confirmpassword"
+                                value={confirmpassword}
+                                onChange={handleChange}
+                                />
                                 <div className="w-full">
-                                    <button className="bg-[#000] text-center w-full text-[#FFF] px-[1.5rem] py-[1rem] rounded-[1.875rem]" >
+                                    <button  className="bg-[#000] text-center w-full text-[#FFF] px-[1.5rem] py-[1rem] rounded-[1.875rem]" >
                                         Sign Up
                                     </button>
                                 </div>
@@ -82,7 +137,7 @@ export default function SignUp(){
                         </div>
                         <div className="w-full pb-[2rem] md:pb-0">
                         <div className="w-full">
-                             <button onClick={logGoogleUser} className=" text-center w-full text-[#000] px-[1.5rem] py-[1rem] rounded-[0.375rem] border-[2px] border-[#D0D5DD]" > <FontAwesomeIcon className="px-[1rem]" icon={faGoogle} />Sign up with Google</button>
+                             <button onClick={signUpWithGoogleUser} className=" text-center w-full text-[#000] px-[1.5rem] py-[1rem] rounded-[0.375rem] border-[2px] border-[#D0D5DD]" > <FontAwesomeIcon className="px-[1rem]" icon={faGoogle} />Sign up with Google</button>
                         </div>
                         <div className="py-[1.5rem] text-center">
                             <p className="text-[0.875rem]">Have an account? <span className="text-[#800020]"> <Link to="/">Log in</Link></span> </p>
