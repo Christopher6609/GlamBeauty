@@ -1,12 +1,14 @@
-import { faGoogle } from "@fortawesome/free-brands-svg-icons"
-import { faCaretDown, faPhone } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import FormInput from "../components/atoms/FormInput"
-import { Link } from "react-router-dom"
-import { useState } from "react"
-import { signInWithGooglePopup, signUserInWithEmailAndPassword } from "../utils/firebase/firebase"
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faCaretDown, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import FormInput from "../components/atoms/FormInput";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { signInWithGooglePopup, signUserInWithEmailAndPassword } from "../utils/firebase/firebase";
 
-export default function Login(){
+
+const Login = () => {
+    
     const DefaultFormFields = {
         email:'',
         password:'',
@@ -28,8 +30,7 @@ const handleSubmit = async (event) => {
     event.preventDefault();
 
     try{
-        const response = await signUserInWithEmailAndPassword(email, password);
-        console.log(response);
+        const {user} = await signUserInWithEmailAndPassword(email, password);
         formFieldsReset();
     }catch(error){
         switch(error.code){
@@ -47,10 +48,10 @@ const handleSubmit = async (event) => {
 }
 
 const logInWithGoogle = async () => {
-    const {user} = await signInWithGooglePopup();
+   await signInWithGooglePopup();
 
-    console.log(user);
 }
+
 
     return (
         <main>
@@ -140,3 +141,5 @@ const logInWithGoogle = async () => {
         </main>
     )
 }
+
+export default Login;
