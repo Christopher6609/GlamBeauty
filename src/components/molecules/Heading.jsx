@@ -1,11 +1,15 @@
 import { faCaretDown, faChevronDown, faEnvelope, faPhone, faSearch, faShoppingBag,} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
 import Cart from "../../pages/Cart";
 import Popup from 'reactjs-popup';
+import {useContext} from 'react';
+import {UserContext} from '../context/UserContext';
+import { signUserOut } from "../../utils/firebase/firebase";
 
 export default function Heading(){
+const {currentUser} = useContext(UserContext);
 
 
 
@@ -41,7 +45,8 @@ export default function Heading(){
                         <input type="search" placeholder="Search here" className="text-black rounded-[0.375rem] w-full py-[0.5rem] pl-[30px] text-[0.875rem]"/>
                    </div> 
                 </div>
-                <div className="flex items-center md:space-x-6 space-x-2">
+
+            {currentUser ? (<div className="flex items-center md:space-x-6 space-x-2">
                    {/* <div className="flex items-center">
                         <button className="flex"><FontAwesomeIcon icon={faShoppingBag} className="md:w-[1.5rem] md:h-[1.5rem] w-[0.95rem] "/>
                         <sup>0</sup>
@@ -64,7 +69,13 @@ export default function Heading(){
                         <p className="text-[0.75rem] px-[0.5rem]">My Account</p>
                         <FontAwesomeIcon icon={faChevronDown} className="w-[1rem] h-[1rem] hidden md:block" />
                    </div>
+                   <div className="flex items-center">
+                        <button onClick={signUserOut} className="text-[0.75rem] px-[0.5rem]">Log Out</button>
+                   </div>
+                    
                 </div>
+            ) : ( <button onClick={signUserOut} className="text-[0.75rem] px-[0.5rem]">Log in</button>) }
+                
 
             </div>
             <div className="w-full h-[4.5rem] bg-[#800020] md:flex items-center text-white px-[15.5rem] hidden ">

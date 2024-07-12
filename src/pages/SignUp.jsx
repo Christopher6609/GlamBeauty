@@ -8,9 +8,8 @@ import { useState } from "react";
 
 export default function SignUp(){
     const signUpWithGoogleUser = async () => {
-        const {user} = await signInWithGooglePopup();
-        createUserDocumentFromAuth(user)
-        //console.log(user);
+    await signInWithGooglePopup();
+     
     }
 
 
@@ -44,7 +43,6 @@ export default function SignUp(){
         try{
             const {user} = await createAuthUserWithEmailAndPassword(email, password);
             await createUserDocumentFromAuth(user, {displayName});
-            console.log(user);
 
             formFieldsReset();
         }catch(error){
