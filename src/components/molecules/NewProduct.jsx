@@ -3,7 +3,10 @@ import { faLock, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-export default function NewProduct({ img, productname,price, productdescription, reviews}){
+export default function NewProduct({product}){
+
+    const {img, productname,price, productdescription, reviews} = product;
+
     return(
         <>
            

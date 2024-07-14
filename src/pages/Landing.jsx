@@ -13,13 +13,16 @@ import Cart from "./Cart";
 import Popup from 'reactjs-popup';
 import Heading from "../components/molecules/Heading";
 import Footer from "../components/molecules/Footer";
-
+import { useContext } from "react";
+import { ProductsContext } from "../components/context/ProductContext";
 
 
 
 
 
 export default function Landing(){
+
+    const {productsData} = useContext(ProductsContext);
 
     // const Product = Product.filter((item) => item.category === "newProduct").map((item)=>(
     //     <Link to={`/productdetails/${item.id}`} key={item.id}>
@@ -124,9 +127,9 @@ export default function Landing(){
                     <div className="md:px-[7.25rem] px-[1rem] md:py-[2.63rem]">
                         <div className="flex flex-wrap justify-between">
                             {/* {Product} */}
-                            {Product.map((item)=>(
-                                <Link to={`/productdetails/${item.id}`} key={item.id}>
-                                    <NewProduct img={item.img} productname={item.productname} price={item.price} productdescription={item.description} reviews={item.reviews}/>
+                            {productsData.map((product)=>(
+                                <Link to={`/productdetails/${product.id}`} key={product.id}>
+                                    <NewProduct product={product}/>
                                 </Link>
                             ))}
                         </div>
