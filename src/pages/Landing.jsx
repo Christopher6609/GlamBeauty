@@ -23,20 +23,27 @@ import { ProductsContext } from "../components/context/ProductContext";
 export default function Landing(){
 
     const {productsData} = useContext(ProductsContext);
+     
+    const [Products, setProducts] = useState(productsData);
+    const [active, setActive] = useState('md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]');
 
-    // const Product = Product.filter((item) => item.category === "newProduct").map((item)=>(
-    //     <Link to={`/productdetails/${item.id}`} key={item.id}>
-    //         <NewProduct img={item.img} productname={item.productname} price={item.price} productdescription={item.description} reviews={item.reviews}/>
-    //     </Link>
-    // ))
+    const newProd = () => {
+        const products = productsData.filter((product) => product.category === "newProduct");
+        setProducts(products); 
+        setActive('md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]');
+    }
+    const trendProd = () => {
+        const products = productsData.filter((product) => product.category === "trending");
+        setProducts(products); 
+        setActive('trend');
+    }
+    const bestSellingProd = () => {
+        const products = productsData.filter((product) => product.category === "bestSelling");
+        setProducts(products); 
+        setActive('best');
+    }
 
-    // function trending(){
-    //     const Product = Product.filter((item) => item.category === "trending").map((item)=>(
-    //         <Link to={`/productdetails/${item.id}`} key={item.id}>
-    //             <NewProduct img={item.img} productname={item.productname} price={item.price} productdescription={item.description} reviews={item.reviews}/>
-    //         </Link>
-    //     ))
-    // }
+
     
 
 
@@ -96,7 +103,7 @@ export default function Landing(){
             <section>
                 <div className="max-w-[1440px] mx-auto">
                 <div className="lg:px-[6.44rem] px-[1rem] md:pt-[3rem] pt-[1rem]">
-                        <div className="border-b-[3px] md:w-[9rem] w-[7rem] md:pb-2">
+                        <div className="border-b-[3px] md:w-[9rem] w-[7rem] md:pb-2 border-[#800020]">
                                 <h3 className="md:text-[1.25rem] font-[garamond] font-normal text-[#333] md:leading-[1.25rem]">Shop By Brands</h3>    
                         </div>
                          
@@ -120,16 +127,15 @@ export default function Landing(){
             <section>
                 <div className="max-w-[1440px] mx-auto ">
                     <div className="flex justify-between lg:px-[21.5rem] pt-[1rem] md:py-0 px-[3rem] border-b-[1px] md:text-[1.25rem] text-[1rem] font-[garamond] md:leading-[1.25rem] font-normal text-[#333] ">
-                        <button className="md:border-b-[3px] border-b-[2px] md:pb-2">New Products</button>
-                        <button>Trending</button>
-                        <button>Best Selling</button>
+                        <button onClick={newProd} className={active}>New Products</button>
+                        <button onClick={trendProd} className={active == "trend" ? `md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]` : ''}>Trending</button>
+                        <button onClick={bestSellingProd} className={active == "best" ? `md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]` : ''}>Best Selling</button>
                     </div>
                     <div className="md:px-[7.25rem] px-[1rem] md:py-[2.63rem]">
-                        <div className="flex flex-wrap justify-between">
-                            {/* {Product} */}
-                            {productsData.map((product)=>(
-                                <Link to={`/productdetails/${product.id}`} key={product.id}>
-                                    <NewProduct product={product}/>
+                        <div className="grid grid-cols-4 justify-between">
+                            {Products.map((product)=>(
+                                <Link to={`/productdetails/${product.id}`} >
+                                    <NewProduct key={product.id} img={product.img} productname={product.productname} price={product.price} productdescription={product.description} reviews={product.reviews}/>
                                 </Link>
                             ))}
                         </div>
@@ -196,7 +202,7 @@ export default function Landing(){
             <section>
             <div className="lg:px-[6.44rem] px-[1rem] max-w-[1440px] mx-auto pt-[1.5rem] md:pt-[2.94rem]">
                     <div className="md:pt-[3rem] pt-[1rem]">
-                            <div className="border-b-[3px] md:w-[10rem] w-[8rem] md:pb-2">
+                            <div className="border-b-[3px] md:w-[10rem] w-[8rem] md:pb-2 border-[#800020]">
                                     <h3 className="md:text-[1.25rem] font-[garamond] font-normal text-[#333] md:leading-[1.25rem]">Shop By Categories</h3>    
                             </div>
                             

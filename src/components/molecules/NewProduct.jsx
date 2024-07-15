@@ -3,14 +3,12 @@ import { faLock, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-export default function NewProduct({product}){
-
-    const {img, productname,price, productdescription, reviews} = product;
-
+export default function NewProduct({img, productname,price, productdescription, reviews}){
+    //const {img, productname,price, productdescription, reviews} = product;
     return(
-        <>
-           
-                <div className="md:w-[17.875rem] w-[7rem] md:p-3 p-1 md:border-[2px] border-[1px] rounded-[0.5rem] mt-2">
+        
+        <div>
+            <div className="md:w-[17.875rem] w-[7rem] md:p-3 p-1 md:border-[2px] border-[1px] rounded-[0.5rem] mt-2">
                             <div className="md:w-[18.4375rem] md:h-[14.5625rem] py-[1rem]">
                                 <img className="object-contain w-full h-full" src={img} alt="img1" />
                             </div>
@@ -43,7 +41,6 @@ export default function NewProduct({product}){
                                 </div>
                             
                         </div>
-                        
-        </>
+        </div>
     )
 }
