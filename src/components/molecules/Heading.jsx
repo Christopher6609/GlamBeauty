@@ -11,8 +11,6 @@ import { signUserOut } from "../../utils/firebase/firebase";
 export default function Heading(){
 const {currentUser} = useContext(UserContext);
 
-
-
     return (
         <div className="">
              <div className="md:h-[4.5rem] h-[2rem] bg-[#121212] flex justify-end space-x-[0.75rem] md:space-x-[7.31rem] px-[1rem] md:px-[6.31rem] ">
@@ -66,7 +64,7 @@ const {currentUser} = useContext(UserContext);
                    </Popup>
                    <div className="flex items-center">
                         <FontAwesomeIcon icon={faCircleUser} className="md:w-[1.5rem] md:h-[1.5rem] w-[0.95rem]"/>
-                        <p className="text-[0.75rem] px-[0.5rem]">My Account</p>
+                        <p className="text-[0.75rem] px-[0.5rem]">{currentUser.displayName}</p>
                         <FontAwesomeIcon icon={faChevronDown} className="w-[1rem] h-[1rem] hidden md:block" />
                    </div>
                    <div className="flex items-center">
@@ -74,7 +72,7 @@ const {currentUser} = useContext(UserContext);
                    </div>
                     
                 </div>
-            ) : ( <button onClick={signUserOut} className="text-[0.75rem] px-[0.5rem]">Log in</button>) }
+            ) : ( <Link to="/"><span className="text-[0.75rem] px-[0.5rem]">Log in</span></Link>) }
                 
 
             </div>
