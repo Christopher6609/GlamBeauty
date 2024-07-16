@@ -6,10 +6,14 @@ import Cart from "../../pages/Cart";
 import Popup from 'reactjs-popup';
 import {useContext} from 'react';
 import {UserContext} from '../context/UserContext';
+import { CartContext } from "../context/CartContext";
 import { signUserOut } from "../../utils/firebase/firebase";
+import CartIcon from "../atoms/CartIcon";
 
 export default function Heading(){
 const {currentUser} = useContext(UserContext);
+const {isCartOpen} = useContext(CartContext);
+
 
     return (
         <div className="">
@@ -51,16 +55,16 @@ const {currentUser} = useContext(UserContext);
                         <p className="text-[0.75rem] px-[0.5rem]" onClick={openCart}>Cart</p></button>
 
                    </div> */}
-                   <Popup trigger={<button className="flex"><FontAwesomeIcon icon={faShoppingBag} className="md:w-[1.5rem] md:h-[1.5rem] w-[0.95rem] "/>
-                        <sup>0</sup>
-                        <p className="text-[0.75rem] px-[0.5rem]">Cart</p></button>} modal nested>
-                            {close => (
+                   <Popup trigger={<CartIcon />} modal nested>
+                   {isCartOpen && <Cart />}
+
+                            {/* {close => (
                                 <div className="modal">
-                                    <Cart close={close} />
+                                    {isCartOpen && <Cart close={close} />}
                                     <div className="">
                                     </div>
                                 </div>
-                            )}
+                            )} */}
                    </Popup>
                    <div className="flex items-center">
                         <FontAwesomeIcon icon={faCircleUser} className="md:w-[1.5rem] md:h-[1.5rem] w-[0.95rem]"/>
@@ -74,7 +78,7 @@ const {currentUser} = useContext(UserContext);
                 </div>
             ) : ( <Link to="/"><span className="text-[0.75rem] px-[0.5rem]">Log in</span></Link>) }
                 
-
+            {isCartOpen && <Cart close={ close}/>}
             </div>
             <div className="w-full h-[4.5rem] bg-[#800020] md:flex items-center text-white px-[15.5rem] hidden ">
                 
