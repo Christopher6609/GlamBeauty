@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 import Popup from 'reactjs-popup';
 import { useContext } from "react";
 import { CartContext } from "../components/context/CartContext";
+import CartItem from "../components/molecules/CartItem";
 
 
-export default function Cart(props){
+export default function Cart(){
     const [count, setCount] = useState(1)
     function incrementCount(){
         setCount(prevCount => prevCount + 1);
@@ -24,7 +25,8 @@ export default function Cart(props){
      const resetCart = () => {
         setIsCartOpen(false);
      }
-
+     const { cartItems } = useContext(CartContext);
+     console.log(cartItems);
 
     
     
@@ -110,7 +112,12 @@ export default function Cart(props){
         // </div>
         <div className='cart-dropdown-container absolute md:w-[25rem]  w-full h-[340px] flex flex-col md:p-[20px] border-1px border-[#000] bg-[#800020] md:top-[7.8rem] top-[5rem] right-0 md:right-[2.5rem] md:z-[5] '>
         <div className='cart-items h-[240px] flex flex-col'>
-
+        {cartItems.map((item) => {
+                return(
+                    <CartItem key={item.id} cartItem={item} />
+                )
+                
+               })}
         
         </div>
         <hr />
@@ -122,5 +129,3 @@ export default function Cart(props){
     </div>
     )
 }
-
-const cartItems = [];
