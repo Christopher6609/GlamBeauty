@@ -2,7 +2,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {  faCartPlus, faCircleArrowLeft, faCircleArrowRight, faMinus, faPlus, faStar } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router-dom";
 import {Product} from "./Landing";
-import {  useState } from "react";
+import {  useState, useContext } from "react";
+import {CartContext} from "../components/context/CartContext"
+
+
 
    export default function ProductDetails(){
         
@@ -20,12 +23,9 @@ import {  useState } from "react";
             
          }
     const cartItem = [];
-    const getProduct = Product.find((product) => product.id === params.id)
-
-    function addProduct(){
-        
-        console.log(cartItem);
-    }
+    const getProduct = Product.find((product) => product.id === params.id);
+    const {addItemToCart} = useContext(CartContext);
+    const addProductToCart = () => addItemToCart(getProduct);
 
     return (
         < >
@@ -121,7 +121,7 @@ import {  useState } from "react";
                                                 <p>{count}</p>
                                                 <button onClick={incrementCount}><FontAwesomeIcon className="w-[1.5rem] h-[1.5rem] text-[red]" icon={faPlus} /></button>
                                             </div>
-                                            <button onClick={addProduct} className="bg-[#000] text-[#FFF] w-[9.375rem] h-[2.75rem] rounded-[0.5rem] gap-[0.625rem] font-[garamond] flex items-center justify-center"> <FontAwesomeIcon icon={faCartPlus} /> Add to Cart</button>
+                                            <button onClick={addProductToCart} className="bg-[#000] text-[#FFF] w-[9.375rem] h-[2.75rem] rounded-[0.5rem] gap-[0.625rem] font-[garamond] flex items-center justify-center"> <FontAwesomeIcon icon={faCartPlus} /> Add to Cart</button>
                                         
                                         </div>
                                     </div>
