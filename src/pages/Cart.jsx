@@ -110,8 +110,9 @@ export default function Cart(){
                 
         //     </div>
         // </div>
-        <div className='cart-dropdown-container absolute md:w-[25rem]  w-full h-[340px] flex flex-col md:p-[20px] border-1px border-[#000] bg-[#800020] md:top-[7.8rem] top-[5rem] right-0 md:right-[2.5rem] md:z-[5] '>
-        <div className='cart-items h-[240px] flex flex-col'>
+        <div className='cart-dropdown-container absolute  md:top-[7.8rem] top-[5rem] right-0 md:right-[0rem] md:z-[5]  '>
+        {cartItems.length > 0 ? <div className=" md:w-[28rem]  w-full h-[420px] flex flex-col md:p-[20px] bg-[#c4bcbe]"> 
+        <div className='cart-items h-[240px] flex flex-col gap-2 overflow-y-scroll'>
         {cartItems.map((item) => {
                 return(
                     <CartItem key={item.id} cartItem={item} />
@@ -121,10 +122,13 @@ export default function Cart(){
         
         </div>
         <hr />
-        <div className="space-y-[1rem] flex flex-col justify-end h-full">
+        <div className="space-y-[1rem] flex flex-col justify-end">
         <Link to={`/checkout`}><button onClick={resetCart} className="bg-[#000] w-full py-[1rem] px-[1.5rem] rounded-[1.875rem] text-[#FFF] font-[garamond] text-[1rem]">Checkout</button></Link>
         <button className="bg-[#FFF] w-full py-[1rem] px-[1.5rem] rounded-[1.875rem] text-[#000] font-[garamond] text-[1rem] border-[1px] border-[#000]">Continue Shopping</button>
         </div>
+        </div> : <div className="flex justify-center items-center h-[100px] md:w-[28rem]  w-full md:p-[20px] bg-[#c4bcbe] text-[#000]"><span>Cart is Empty</span></div>}
+        
+        
         
     </div>
     )

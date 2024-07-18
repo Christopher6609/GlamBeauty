@@ -5,7 +5,7 @@ import { CartContext } from "../context/CartContext";
 
 const CartIcon = () => {
 
-    const {isCartOpen,setIsCartOpen} = useContext(CartContext);
+    const {isCartOpen,setIsCartOpen, cartCount} = useContext(CartContext);
     const toggleCart = () => {
         setIsCartOpen(!isCartOpen);
        
@@ -15,7 +15,7 @@ const CartIcon = () => {
     return(
         <button className="flex" onClick={toggleCart}>
             <FontAwesomeIcon icon={faShoppingBag} className="md:w-[1.5rem] md:h-[1.5rem] w-[0.95rem] "/>
-            <sup>0</sup>
+            <sup>{cartCount}</sup>
             <p className="text-[0.75rem] px-[0.5rem]">Cart</p>
         </button>
     )
