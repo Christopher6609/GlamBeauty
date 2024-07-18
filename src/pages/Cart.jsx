@@ -26,7 +26,7 @@ export default function Cart(){
         setIsCartOpen(false);
      }
      const { cartItems } = useContext(CartContext);
-     console.log(cartItems);
+     
 
     
     

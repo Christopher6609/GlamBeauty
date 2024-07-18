@@ -134,8 +134,8 @@ export default function Landing(){
                     <div className="md:px-[7.25rem] px-[1rem] md:py-[2.63rem]">
                         <div className="grid grid-cols-4 justify-between">
                             {Products.map((product)=>(
-                                <Link to={`/productdetails/${product.id}`} >
-                                    <NewProduct key={product.id} img={product.img} productname={product.productname} price={product.price} productdescription={product.description} reviews={product.reviews}/>
+                                <Link to={`/productdetails/${product.id}`} key={product.id} >
+                                    <NewProduct img={product.img} productname={product.productname} price={product.price} productdescription={product.description} reviews={product.reviews}/>
                                 </Link>
                             ))}
                         </div>

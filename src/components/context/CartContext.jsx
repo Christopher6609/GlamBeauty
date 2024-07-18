@@ -9,9 +9,7 @@ export const CartContext = createContext({
 
 const addCartItem = (cartItems, productToAdd) => {
     //condition to check if the items in the cart contains the product to be added into the cart.NB this returns a boolean 
-    const existingItem = cartItems.find((cartItem)=> {
-        cartItem.id === productToAdd.id;
-    })
+    const existingItem = cartItems.find((cartItem)=> cartItem.id === productToAdd.id )
 
     // function to pick the cart item that is the same as the product to be added. Returns the array with an increment in the quantity else return the item
     if(existingItem){
