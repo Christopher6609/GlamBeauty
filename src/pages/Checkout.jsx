@@ -1,10 +1,16 @@
-import React from 'react'
-import Footer from '../components/molecules/Footer'
-import Heading from '../components/molecules/Heading'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleInfo,} from '@fortawesome/free-solid-svg-icons'
+import React from 'react';
+import Footer from '../components/molecules/Footer';
+import Heading from '../components/molecules/Heading';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleInfo,} from '@fortawesome/free-solid-svg-icons';
+import CheckoutItem from '../components/molecules/CheckoutItem';
+import { useContext } from 'react';
+import { CartContext } from '../components/context/CartContext';
 
 const Checkout = () => {
+
+    const {cartItems} = useContext(CartContext);
+
   return (
     <div>
         <Heading />
@@ -16,57 +22,10 @@ const Checkout = () => {
                             <h2 className='font-[garamond] sm:text-[1.5rem] text-[1rem]'>Purchase Summary</h2> <FontAwesomeIcon icon={faCircleInfo}/>
                         </div>
                         <div className='sm:space-y-[1.5rem] space-y-[1rem]'>
-                        <div className="flex sm:h-[10.8125rem] md:w-[45.25rem] justify-between sm:px-[1rem]  py-[0.2rem]">
-                                    <div className="sm:w-[13.125rem] sm:h-[10.8125rem] w-[5rem] h-[5rem] border-[1px] rounded-[0.625rem] border-[#EAECF0]">
-                                        <img className="object-contain w-full h-full " src="/img/blemish.png" />
-                                    </div>
-                                    <div className="flex flex-col justify-between sm:py-[2rem] sm:w-[16.18rem] w-[13rem]">
-                                        <div >
-                                            <h3 className="sm:text-[1.25rem] text-[0.85rem] font-[garamond] leading-[1.8125rem] text-[#101928] ">
-                                            Clinique Anti-Blemish Solutions Liquid Makeup 30ml
-                                            </h3>
-                                        </div>
-                                        
-                                        <div>
-                                            <p className="sm:text-[0.875rem] text-[0.5rem] text-[#475367] leading-[1.26875rem]">Shade: Black</p>
-                                        </div>
-                                        <div>
-                                            <p className="sm:text-[0.875rem] text-[0.5rem] text-[#475367] leading-[1.26875rem]">Size: Medium</p>
-                                        </div>
-                                    </div>
-                                    <div className='flex items-center'>
-                                        <div>
-                                            <p className="md:text-[2rem] text-[1rem] font-[garamond] leading-[1.5rem]">$50<sup className="md:text-[1.5rem] ">.00</sup></p>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <hr />
-                                <div className="flex sm:h-[10.8125rem] md:w-[45.25rem] justify-between sm:px-[1rem]  py-[0.2rem]">
-                                    <div className="sm:w-[13.125rem] sm:h-[10.8125rem] w-[5rem] h-[5rem] border-[1px] rounded-[0.625rem] border-[#EAECF0]">
-                                        <img className="object-contain w-full h-full " src="/img/clinique.png" />
-                                    </div>
-                                    <div className="flex flex-col justify-between sm:py-[2rem] sm:w-[16.18rem] w-[13rem]">
-                                        <div >
-                                            <h3 className="sm:text-[1.25rem] text-[0.85rem] font-[garamond] leading-[1.8125rem] text-[#101928] ">
-                                            Clinique Anti-Blemish Solutions Liquid Makeup 30ml
-                                            </h3>
-                                        </div>
-                                        
-                                        <div>
-                                            <p className="sm:text-[0.875rem] text-[0.5rem] text-[#475367] leading-[1.26875rem]">Shade: Black</p>
-                                        </div>
-                                        <div>
-                                            <p className="sm:text-[0.875rem] text-[0.5rem] text-[#475367] leading-[1.26875rem]">Size: Large</p>
-                                        </div>
-                                    </div>
-                                    <div className='flex items-center'>
-                                        <div>
-                                            <p className="md:text-[2rem] text-[1rem] font-[garamond] leading-[1.5rem]  ">$80<sup className="md:text-[1.5rem] ">.00</sup></p>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
+                        {cartItems.map((cartItem) => 
+
+                        <CheckoutItem key={cartItem.id} cartItem={cartItem}/> )}
+                       
                         </div>
                         <div>
                             
@@ -194,11 +153,11 @@ const Checkout = () => {
                         <div className='font-[garamond]'>
                             <div className="flex justify-between items-center md:py-[0.44rem]">
                                 <p className="text-[0.85rem] leading-[1.45rem] text-[#667185]">Subtotal:</p>
-                                <p className="text-[0.875rem] text-[#101928] leading-[1.5rem] font-[400]">$594.00</p>
+                                <p className="text-[0.875rem] text-[#101928] leading-[1.5rem] font-[400]">0.00</p>
                             </div>
                             <div className="flex justify-between items-center md:py-[0.44rem]">
                                 <p className="text-[0.85rem] leading-[1.45rem] text-[#667185]">VAT(10%):</p>
-                                <p className="text-[0.875rem] text-[#101928] leading-[1.5rem] font-[400]">$54.00</p>
+                                <p className="text-[0.875rem] text-[#101928] leading-[1.5rem] font-[400]">$0.00</p>
                             </div>
                             <div className="flex justify-between items-center md:py-[0.44rem]">
                                 <p className="text-[0.85rem] leading-[1.45rem] text-[#667185]">Shipping:</p>
@@ -209,7 +168,7 @@ const Checkout = () => {
                         <div>
                              <div className="flex justify-between items-center md:py-[0.44rem]">
                                 <p className="text-[0.85rem] leading-[1.45rem] text-[#000] font-[500]">Total:</p>
-                                <p className="text-[0.875rem] text-[#000] leading-[1.5rem] font-[500]">$250.32</p>
+                                <p className="text-[0.875rem] text-[#000] leading-[1.5rem] font-[500]">$0.00</p>
                             </div> 
                         </div>
                         <div>

@@ -6,6 +6,7 @@ import Popup from 'reactjs-popup';
 import { useContext } from "react";
 import { CartContext } from "../components/context/CartContext";
 import CartItem from "../components/molecules/CartItem";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Cart(){
@@ -22,10 +23,14 @@ export default function Cart(){
 
     const {setIsCartOpen} = useContext(CartContext);
 
-     const resetCart = () => {
+    
+     const { cartItems } = useContext(CartContext);
+
+     const navigate = useNavigate();
+     const proceedToCheckoutHandler = () => {
+        navigate('/checkout');
         setIsCartOpen(false);
      }
-     const { cartItems } = useContext(CartContext);
      
 
     
@@ -123,7 +128,7 @@ export default function Cart(){
         </div>
         <hr />
         <div className="space-y-[1rem] flex flex-col justify-end">
-        <Link to={`/checkout`}><button onClick={resetCart} className="bg-[#000] w-full py-[1rem] px-[1.5rem] rounded-[1.875rem] text-[#FFF] font-[garamond] text-[1rem]">Checkout</button></Link>
+        <Link to={`/checkout`}><button onClick={proceedToCheckoutHandler} className="bg-[#000] w-full py-[1rem] px-[1.5rem] rounded-[1.875rem] text-[#FFF] font-[garamond] text-[1rem]">Checkout</button></Link>
         <button className="bg-[#FFF] w-full py-[1rem] px-[1.5rem] rounded-[1.875rem] text-[#000] font-[garamond] text-[1rem] border-[1px] border-[#000]">Continue Shopping</button>
         </div>
         </div> : <div className="flex justify-center items-center h-[100px] md:w-[28rem]  w-full md:p-[20px] bg-[#c4bcbe] text-[#000]"><span>Cart is Empty</span></div>}
