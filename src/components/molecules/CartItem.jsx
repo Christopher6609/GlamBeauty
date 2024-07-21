@@ -18,7 +18,7 @@ const CartItem = ({cartItem}) => {
                                     <p className="text-[0.7rem]">{description}</p>
                                 </div>
                                 <div>
-                                    <p className="md:text-[0.9rem] text-[1rem] font-[garamond] leading-[1.5rem]">{price}<sup className="md:text-[0.7rem] ">.00</sup></p>
+                                    <p className="md:text-[0.9rem] text-[1rem] font-[garamond] leading-[1.5rem]">${price}</p>
                                 </div>                                
                             </div>
                            
