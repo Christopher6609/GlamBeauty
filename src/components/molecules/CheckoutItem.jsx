@@ -43,7 +43,7 @@ const CheckoutItem = ({cartItem}) => {
             </div>
             <div className='flex items-center'>
                 <div>
-                    <p className="md:text-[2rem] text-[1rem] font-[garamond] leading-[1.5rem]">{price}<sup className="md:text-[1.5rem] ">.00</sup></p>
+                    <p className="md:text-[2rem] text-[1rem] font-[garamond] leading-[1.5rem]">${(quantity * price).toFixed(2)}</p>
                 </div>
             </div>
             <div className=" flex items-start h-full">

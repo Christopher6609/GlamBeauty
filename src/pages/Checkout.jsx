@@ -9,7 +9,7 @@ import { CartContext } from '../components/context/CartContext';
 
 const Checkout = () => {
 
-    const {cartItems} = useContext(CartContext);
+    const {cartItems,cartTotal} = useContext(CartContext);
 
   return (
     <div>
@@ -153,7 +153,7 @@ const Checkout = () => {
                         <div className='font-[garamond]'>
                             <div className="flex justify-between items-center md:py-[0.44rem]">
                                 <p className="text-[0.85rem] leading-[1.45rem] text-[#667185]">Subtotal:</p>
-                                <p className="text-[0.875rem] text-[#101928] leading-[1.5rem] font-[400]">0.00</p>
+                                <p className="text-[0.875rem] text-[#101928] leading-[1.5rem] font-[400]">${cartTotal}</p>
                             </div>
                             <div className="flex justify-between items-center md:py-[0.44rem]">
                                 <p className="text-[0.85rem] leading-[1.45rem] text-[#667185]">VAT(10%):</p>
@@ -168,7 +168,7 @@ const Checkout = () => {
                         <div>
                              <div className="flex justify-between items-center md:py-[0.44rem]">
                                 <p className="text-[0.85rem] leading-[1.45rem] text-[#000] font-[500]">Total:</p>
-                                <p className="text-[0.875rem] text-[#000] leading-[1.5rem] font-[500]">$0.00</p>
+                                <p className="text-[0.875rem] text-[#000] leading-[1.5rem] font-[500]">${cartTotal}</p>
                             </div> 
                         </div>
                         <div>
@@ -183,7 +183,7 @@ const Checkout = () => {
                             </div>
                         </div>
                         <div>
-                            <button className='w-full bg-[#000] text-[#FFF] px-[1.5rem] py-[1rem] rounded-[1.875rem] text-[1rem] '>Pay $250.32</button>
+                            <button className='w-full bg-[#000] text-[#FFF] px-[1.5rem] py-[1rem] rounded-[1.875rem] text-[1rem] '>Pay ${cartTotal}</button>
                         </div>
                     </div>
                 </div>

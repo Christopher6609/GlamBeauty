@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {  faCartPlus, faCircleArrowLeft, faCircleArrowRight, faMinus, faPlus, faStar } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router-dom";
-import {Product} from "./Landing";
+import Product from "../productData.json";
 import { useContext } from "react";
 import {CartContext} from "../components/context/CartContext"
 
@@ -11,11 +11,11 @@ import {CartContext} from "../components/context/CartContext"
         
         
     
-         const params = useParams();
+    const params = useParams();
 
     
     const getProduct = Product.find((product) => product.id === params.id);
-    const {addItemToCart, reduceItemFromCart} = useContext(CartContext);
+    const {addItemToCart} = useContext(CartContext);
     const addProductToCart = () => addItemToCart(getProduct);
 
     return (
@@ -70,7 +70,7 @@ import {CartContext} from "../components/context/CartContext"
                                     
                                 </div>
                                 <div>
-                                    <p className="md:text-[2rem] text-[1.5rem] font-[garamond] md:leading-[1.5rem] font-normal text-[#101928]">{getProduct.price}<sup className="md:text-[1.5rem] text-[1rem] ">.00</sup></p>
+                                    <p className="md:text-[2rem] text-[1.5rem] font-[garamond] md:leading-[1.5rem] font-normal text-[#101928]">${getProduct.price.toFixed(2)}</p>
                                 </div>
                                 <div className="space-y-[0.25rem]">
                                     <label htmlFor="shades" className="md:text-[1.25rem] text-[1rem] font-[garamond] leading-[1.5rem] tracking-[-0.025rem]">Choose Shade:</label>
