@@ -1,6 +1,6 @@
 import {initializeApp} from "firebase/app"
 import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged} from "firebase/auth" ;
-import { getFirestore , doc, getDoc, setDoc, collection, writeBatch } from "firebase/firestore";
+import { getFirestore , doc, getDoc, setDoc, collection, writeBatch, query, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyC1wIh8gD2CKQJKTaYDjlEkK0XfYHyW2Wg",
@@ -61,7 +61,9 @@ const firebaseConfig = {
     }
   
 
-    //method to set the product json object up into firestore
+
+    //method to add and send the products json objects in the PRODUCT_DATA file up into firestore database
+
     export const addCollectionAndDocuments = async (collectionKey, objectToAdd) => {
       const collectionRef = collection(db, collectionKey);
       const batch = writeBatch(db);
@@ -72,4 +74,23 @@ const firebaseConfig = {
       });
       await batch.commit();
       console.log("upload done!");
+
+    }
+
+    //method to get and use the products  objects stored inside firestore database throughout our application
+    export const getCollectionAndDocuments = async () => {
+      const collectionRef = collection(db, 'products');
+      const q = query(collectionRef);
+     
+
+      const querySnapshot = await getDocs(q);
+  
+
+      const productMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+        const {category, products} = docSnapshot.data();
+        acc[category.toLowerCase()] = products;
+        return acc;
+      }, {});
+      return productMap;
+
     }
