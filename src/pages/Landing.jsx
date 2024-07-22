@@ -1,4 +1,4 @@
-import { faClose, faCaretDown, faChevronDown, faEnvelope, faPhone, faSearch, faShoppingBag, faX, } from "@fortawesome/free-solid-svg-icons";
+import {  faX, } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 import IntroCard from "../components/molecules/IntroCard";
@@ -9,8 +9,6 @@ import { faFacebook, faInstagram, faLinkedin, faTiktok } from "@fortawesome/free
 import Category from "../components/molecules/Category";
 import {Link} from "react-router-dom";
 import { useState } from "react";
-import Cart from "./Cart";
-import Popup from 'reactjs-popup';
 import Heading from "../components/molecules/Heading";
 import Footer from "../components/molecules/Footer";
 import { useContext } from "react";
@@ -23,20 +21,27 @@ import { ProductsContext } from "../components/context/ProductContext";
 export default function Landing(){
 
     const {productsData} = useContext(ProductsContext);
+     
+    const [Products, setProducts] = useState(productsData);
+    const [active, setActive] = useState('md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]');
 
-    // const Product = Product.filter((item) => item.category === "newProduct").map((item)=>(
-    //     <Link to={`/productdetails/${item.id}`} key={item.id}>
-    //         <NewProduct img={item.img} productname={item.productname} price={item.price} productdescription={item.description} reviews={item.reviews}/>
-    //     </Link>
-    // ))
+    const newProd = () => {
+        const products = productsData.filter((product) => product.category === "newProduct");
+        setProducts(products); 
+        setActive('md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]');
+    }
+    const trendProd = () => {
+        const products = productsData.filter((product) => product.category === "trending");
+        setProducts(products); 
+        setActive('trend');
+    }
+    const bestSellingProd = () => {
+        const products = productsData.filter((product) => product.category === "bestSelling");
+        setProducts(products); 
+        setActive('best');
+    }
 
-    // function trending(){
-    //     const Product = Product.filter((item) => item.category === "trending").map((item)=>(
-    //         <Link to={`/productdetails/${item.id}`} key={item.id}>
-    //             <NewProduct img={item.img} productname={item.productname} price={item.price} productdescription={item.description} reviews={item.reviews}/>
-    //         </Link>
-    //     ))
-    // }
+
     
 
 
@@ -96,7 +101,7 @@ export default function Landing(){
             <section>
                 <div className="max-w-[1440px] mx-auto">
                 <div className="lg:px-[6.44rem] px-[1rem] md:pt-[3rem] pt-[1rem]">
-                        <div className="border-b-[3px] md:w-[9rem] w-[7rem] md:pb-2">
+                        <div className="border-b-[3px] md:w-[9rem] w-[7rem] md:pb-2 border-[#800020]">
                                 <h3 className="md:text-[1.25rem] font-[garamond] font-normal text-[#333] md:leading-[1.25rem]">Shop By Brands</h3>    
                         </div>
                          
@@ -120,16 +125,15 @@ export default function Landing(){
             <section>
                 <div className="max-w-[1440px] mx-auto ">
                     <div className="flex justify-between lg:px-[21.5rem] pt-[1rem] md:py-0 px-[3rem] border-b-[1px] md:text-[1.25rem] text-[1rem] font-[garamond] md:leading-[1.25rem] font-normal text-[#333] ">
-                        <button className="md:border-b-[3px] border-b-[2px] md:pb-2">New Products</button>
-                        <button>Trending</button>
-                        <button>Best Selling</button>
+                        <button onClick={newProd} className={active}>New Products</button>
+                        <button onClick={trendProd} className={active == "trend" ? `md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]` : ''}>Trending</button>
+                        <button onClick={bestSellingProd} className={active == "best" ? `md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]` : ''}>Best Selling</button>
                     </div>
                     <div className="md:px-[7.25rem] px-[1rem] md:py-[2.63rem]">
-                        <div className="flex flex-wrap justify-between">
-                            {/* {Product} */}
-                            {productsData.map((product)=>(
-                                <Link to={`/productdetails/${product.id}`} key={product.id}>
-                                    <NewProduct product={product}/>
+                        <div className="grid grid-cols-4 justify-between">
+                            {Products.map((product)=>(
+                                <Link to={`/productdetails/${product.id}`} key={product.id} >
+                                    <NewProduct img={product.img} productname={product.productname} price={product.price} productdescription={product.description} reviews={product.reviews}/>
                                 </Link>
                             ))}
                         </div>
@@ -196,7 +200,7 @@ export default function Landing(){
             <section>
             <div className="lg:px-[6.44rem] px-[1rem] max-w-[1440px] mx-auto pt-[1.5rem] md:pt-[2.94rem]">
                     <div className="md:pt-[3rem] pt-[1rem]">
-                            <div className="border-b-[3px] md:w-[10rem] w-[8rem] md:pb-2">
+                            <div className="border-b-[3px] md:w-[10rem] w-[8rem] md:pb-2 border-[#800020]">
                                     <h3 className="md:text-[1.25rem] font-[garamond] font-normal text-[#333] md:leading-[1.25rem]">Shop By Categories</h3>    
                             </div>
                             
@@ -275,120 +279,6 @@ export const intro = [
 
 ]
 
-
-
-export const Product=[
-    {
-        id:"product1",
-        img:"/img/newproduct1.png",
-        productname:"CLINIQUE LIQUID",
-        price:"$50",
-        description:"Anti- Blemish Liquid Makeup Solutions and Face Cream 600ml.",
-        reviews:"30+ Reviews",
-        category: "newProduct",
-        details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
-    },
-    {
-        id:"product2",
-        img:"/img/newproduct2.png",
-        productname:"evelin vody wash",
-        price:"$54",
-        description:"99% Natural Aloe Vera Multifunctional Body and Face Gel 400ml.",
-        reviews:"30+ Reviews",
-        category: "newProduct",
-        details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
-    },
-    {
-        id:"product3",
-        img:"/img/newproduct3.png",
-        productname:"camelo",
-        price:"$35",
-        description:"Anti Damage Keratin Mask for Damaged Hair 200ml.",
-        reviews:"30+ Reviews",
-        category:"newProduct",
-        details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
-    },
-    {
-        id:"product4",
-        img:"/img/newproduct4.png",
-        productname:"mon paris",
-        price:"$80",
-        description:"The best elegant perfume for women",
-        reviews:"30+ Reviews",
-        category: "newProduct",
-        details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
-    },
-     {
-        id:"product5",
-        img:"/img/newproduct5.png",
-        productname:"court heels",
-        price:"$70",
-        description:"The best elegant perfume for women",
-        reviews:"30+ Reviews",
-        category: "newProduct",
-        details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
-    },
-     {
-        id:"product6",
-        img:"/img/newproduct6.png",
-        productname:"CLARINS DOUBLE SERUM",
-        price:"$60",
-        description:"nti- Blemish Liquid Makeup Solutions and Face Cream 600ml.",
-        reviews:"30+ Reviews",
-        category:"newProduct",
-        details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
-    },
-    {
-        id:"product7",
-        img:"/img/newproduct7.png",
-        productname:"Essence",
-        price:"$90",
-        description:"Anti Damage Keratin Mask for Damaged Hair 200ml.",
-        reviews:"30+ Reviews",
-        category: "newProduct",
-        details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
-    },
-    {
-        id:"product8",
-        img:"/img/newproduct8.png",
-        productname:"mon paris",
-        price:"$60",
-        description:"The best elegant body wash for women",
-        reviews:"30+ Reviews",
-        category: "newProduct",
-        details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
-    },
-    {
-        id:"product9",
-        img:"/img/newproduct4.png",
-        productname:"mon paris",
-        price:"$80",
-        description:"The best elegant perfume for women",
-        reviews:"30+ Reviews",
-        category: "trending",
-        details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
-    },
-     {
-        id:"product10",
-        img:"/img/newproduct5.png",
-        productname:"court heels",
-        price:"$70",
-        description:"The best elegant perfume for women",
-        reviews:"30+ Reviews",
-        category: "trending",
-        details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
-    },
-     {
-        id:"product11",
-        img:"/img/newproduct6.png",
-        productname:"CLARINS DOUBLE SERUM",
-        price:"$60",
-        description:"nti- Blemish Liquid Makeup Solutions and Face Cream 600ml.",
-        reviews:"30+ Reviews",
-        category:"trending",
-        details:"Experience Clinique's Anti Blemish Solutions Liquid Makeup, a weightless foundation offering natural to moderate coverage, specially crafted for those with oily or blemish-prone skin. Dermatologist-tested and featuring salicylic acid, this oil-free foundation not only conceals but actively works to clear and prevent blemishes. Skin-soothing elements like red algae extract, licorice, and caffeine are added to reduce redness.",
-    },
-]
 export const categoryimage=[
     {
         id:"image1",

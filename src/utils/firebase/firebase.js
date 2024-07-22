@@ -61,7 +61,9 @@ const firebaseConfig = {
     }
   
 
+
     //method to add and send the products json objects in the PRODUCT_DATA file up into firestore database
+
     export const addCollectionAndDocuments = async (collectionKey, objectToAdd) => {
       const collectionRef = collection(db, collectionKey);
       const batch = writeBatch(db);
@@ -72,6 +74,7 @@ const firebaseConfig = {
       });
       await batch.commit();
       console.log("upload done!");
+
     }
 
     //method to get and use the products  objects stored inside firestore database throughout our application
@@ -89,4 +92,5 @@ const firebaseConfig = {
         return acc;
       }, {});
       return productMap;
+
     }

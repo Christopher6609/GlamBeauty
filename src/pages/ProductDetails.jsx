@@ -1,31 +1,22 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {  faCartPlus, faCircleArrowLeft, faCircleArrowRight, faMinus, faPlus, faStar } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router-dom";
-import {Product} from "./Landing";
-import {  useState } from "react";
+import Product from "../productData.json";
+import { useContext } from "react";
+import {CartContext} from "../components/context/CartContext"
+
+
 
    export default function ProductDetails(){
         
-         const [count, setCount] = useState(1)
-    
-         const params = useParams();
-
-       function incrementCount(){
-            setCount(prevCount => prevCount + 1);
-        }
-        function decrementCount(){
-            if(count > 0){
-                setCount(prevCount => prevCount - 1);
-            }
-            
-         }
-    const cartItem = [];
-    const getProduct = Product.find((product) => product.id === params.id)
-
-    function addProduct(){
         
-        console.log(cartItem);
-    }
+    
+    const params = useParams();
+
+    
+    const getProduct = Product.find((product) => product.id === params.id);
+    const {addItemToCart} = useContext(CartContext);
+    const addProductToCart = () => addItemToCart(getProduct);
 
     return (
         < >
@@ -79,7 +70,7 @@ import {  useState } from "react";
                                     
                                 </div>
                                 <div>
-                                    <p className="md:text-[2rem] text-[1.5rem] font-[garamond] md:leading-[1.5rem] font-normal text-[#101928]">{getProduct.price}<sup className="md:text-[1.5rem] text-[1rem] ">.00</sup></p>
+                                    <p className="md:text-[2rem] text-[1.5rem] font-[garamond] md:leading-[1.5rem] font-normal text-[#101928]">${getProduct.price.toFixed(2)}</p>
                                 </div>
                                 <div className="space-y-[0.25rem]">
                                     <label htmlFor="shades" className="md:text-[1.25rem] text-[1rem] font-[garamond] leading-[1.5rem] tracking-[-0.025rem]">Choose Shade:</label>
@@ -113,19 +104,21 @@ import {  useState } from "react";
                                     </div>
                                 </div>
                                 <div>
-                                    <h3 className="md:text-[1.25rem] text-[1rem] font-[garamond] md:leading-[1.5rem] tracking-[-0.025rem]">Quantity:</h3>
+                                    {/* <h3 className="md:text-[1.25rem] text-[1rem] font-[garamond] md:leading-[1.5rem] tracking-[-0.025rem]">Quantity:</h3>
                                     <div>
                                         <div className="flex items-center gap-[1rem]">
                                             <div className="flex px-[1rem] md:py-[1.12rem] py-[0.5rem] md:w-[11rem] w-[8rem] justify-between border-[2px] rounded-[0.5rem] items-center">
-                                               <button onClick ={decrementCount}><FontAwesomeIcon className="md:w-[1.5rem] md:h-[1.5rem] w-[1rem] h-[1rem]" icon={faMinus} /></button> 
-                                                <p>{count}</p>
-                                                <button onClick={incrementCount}><FontAwesomeIcon className="w-[1.5rem] h-[1.5rem] text-[red]" icon={faPlus} /></button>
+                                               <button onClick ={()=>{}}><FontAwesomeIcon className="md:w-[1.5rem] md:h-[1.5rem] w-[1rem] h-[1rem]" icon={faMinus} /></button> 
+                                                <p>{}</p>
+                                                <button onClick={addProductToCart}><FontAwesomeIcon className="w-[1.5rem] h-[1.5rem] text-[red]" icon={faPlus} /></button>
                                             </div>
-                                            <button onClick={addProduct} className="bg-[#000] text-[#FFF] w-[9.375rem] h-[2.75rem] rounded-[0.5rem] gap-[0.625rem] font-[garamond] flex items-center justify-center"> <FontAwesomeIcon icon={faCartPlus} /> Add to Cart</button>
+                                            
                                         
-                                        </div>
-                                    </div>
-                                </div>
+                                        </div> 
+                                    </div>*/}
+                                    <button onClick={addProductToCart} className="bg-[#000] text-[#FFF] w-[9.375rem] h-[2.75rem] rounded-[0.5rem] gap-[0.625rem] font-[garamond] flex items-center justify-center"> <FontAwesomeIcon icon={faCartPlus} /> Add to Cart</button>
+                                </div> 
+
                         </div>
                     </div>
                 </div>
