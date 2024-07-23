@@ -49,23 +49,9 @@ const {isCartOpen} = useContext(CartContext);
                 </div>
 
             {currentUser ? (<div className="flex items-center md:space-x-6 space-x-2">
-                   {/* <div className="flex items-center">
-                        <button className="flex"><FontAwesomeIcon icon={faShoppingBag} className="md:w-[1.5rem] md:h-[1.5rem] w-[0.95rem] "/>
-                        <sup>0</sup>
-                        <p className="text-[0.75rem] px-[0.5rem]" onClick={openCart}>Cart</p></button>
-
-                   </div> */}
-                   <Popup trigger={<CartIcon />} modal nested>
+                   {<CartIcon />}
                    {isCartOpen && <Cart />}
-
-                            {/* {close => (
-                                <div className="modal">
-                                    {isCartOpen && <Cart close={close} />}
-                                    <div className="">
-                                    </div>
-                                </div>
-                            )} */}
-                   </Popup>
+                   
                    <div className="flex items-center">
                         <FontAwesomeIcon icon={faCircleUser} className="md:w-[1.5rem] md:h-[1.5rem] w-[0.95rem]"/>
                         <p className="text-[0.75rem] px-[0.5rem]">{currentUser.displayName}</p>
