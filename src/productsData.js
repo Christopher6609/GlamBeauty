@@ -1,6 +1,6 @@
 const PRODUCT_DATA = [
     {
-        category: "newProduct",
+        category: "new Products",
         products: [
             {
                 "id":"product1",
@@ -80,7 +80,7 @@ const PRODUCT_DATA = [
 
     },
     {
-        category: "trendingProduct",
+        category: "trending Products",
         products: [
             {
                 "id":"product9",
@@ -112,7 +112,7 @@ const PRODUCT_DATA = [
         ]
     },
     {
-        category: "bestSelling",
+        category: "best Selling",
         products: [
             {
                 "id":"product12",

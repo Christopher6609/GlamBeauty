@@ -8,7 +8,7 @@ import Button from "../components/atoms/Button";
 import { faFacebook, faInstagram, faLinkedin, faTiktok } from "@fortawesome/free-brands-svg-icons";
 import Category from "../components/molecules/Category";
 import {Link} from "react-router-dom";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import Heading from "../components/molecules/Heading";
 import Footer from "../components/molecules/Footer";
 import { useContext } from "react";
@@ -20,26 +20,28 @@ import { ProductsContext } from "../components/context/ProductContext";
 
 export default function Landing(){
 
-    const {productsData} = useContext(ProductsContext);
+    const {productsMap} = useContext(ProductsContext);
      
-    const [Products, setProducts] = useState(productsData);
+    //const [Products, setProducts] = useState();
     const [active, setActive] = useState('md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]');
 
-    const newProd = () => {
-        const products = productsData.filter((product) => product.category === "newProduct");
-        setProducts(products); 
-        setActive('md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]');
-    }
-    const trendProd = () => {
-        const products = productsData.filter((product) => product.category === "trending");
-        setProducts(products); 
-        setActive('trend');
-    }
-    const bestSellingProd = () => {
-        const products = productsData.filter((product) => product.category === "bestSelling");
-        setProducts(products); 
-        setActive('best');
-    }
+   
+
+    // const newProd = () => {
+    //     const products = productsData.filter((product) => product.category === "newProduct");
+    //     setProducts(products); 
+    //     setActive('md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]');
+    // }
+    // const trendProd = () => {
+    //     const products = productsData.filter((product) => product.category === "trending");
+    //     setProducts(products); 
+    //     setActive('trend');
+    // }
+    // const bestSellingProd = () => {
+    //     const products = productsData.filter((product) => product.category === "bestSelling");
+    //     setProducts(products); 
+    //     setActive('best');
+    // }
 
 
     
@@ -124,18 +126,38 @@ export default function Landing(){
             </section>
             <section>
                 <div className="max-w-[1440px] mx-auto ">
-                    <div className="flex justify-between lg:px-[21.5rem] pt-[1rem] md:py-0 px-[3rem] border-b-[1px] md:text-[1.25rem] text-[1rem] font-[garamond] md:leading-[1.25rem] font-normal text-[#333] ">
-                        <button onClick={newProd} className={active}>New Products</button>
-                        <button onClick={trendProd} className={active == "trend" ? `md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]` : ''}>Trending</button>
-                        <button onClick={bestSellingProd} className={active == "best" ? `md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]` : ''}>Best Selling</button>
-                    </div>
+                    {/* <div className="flex justify-between lg:px-[21.5rem] pt-[1rem] md:py-0 px-[3rem] border-b-[1px] md:text-[1.25rem] text-[1rem] font-[garamond] md:leading-[1.25rem] font-normal text-[#333] ">
+                        <button onClick={()=>{}} className={active}>New Products</button>
+                        <button onClick={()=>{}} className={active == "trend" ? `md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]` : ''}>Trending</button>
+                        <button onClick={()=>{}} className={active == "best" ? `md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]` : ''}>Best Selling</button>
+                    </div> */}
                     <div className="md:px-[7.25rem] px-[1rem] md:py-[2.63rem]">
-                        <div className="grid grid-cols-4 justify-between">
-                            {Products.map((product)=>(
+                        <div className="justify-between">
+                            {/* {Products.map((product)=>(
                                 <Link to={`/productdetails/${product.id}`} key={product.id} >
                                     <NewProduct img={product.img} productname={product.productname} price={product.price} productdescription={product.description} reviews={product.reviews}/>
                                 </Link>
+                            ))} */}
+                            
+                            {Object.keys(productsMap).map((category)=>(
+                                <Fragment key={category}>
+                                <div className="p-5">
+                                     <h2> <span className="md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020] uppercase">{category}</span></h2>
+                                </div>
+                                
+                                    <div className=" grid grid-cols-4">
+                                        {productsMap[category].filter((_ ,idx)=> idx < 4 ).map((product)=>(
+                                            <Link to={`/productdetails/${product.id}`} key={product.id} >
+                                            <NewProduct img={product.img} productname={product.productname} price={product.price} productdescription={product.description} reviews={product.reviews}/>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </Fragment>
                             ))}
+
+                            
+                            
+
                         </div>
                         <div className="my-[2.5rem] flex flex-col justify-center items-center">
                             <div className="">
