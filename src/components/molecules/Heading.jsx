@@ -88,37 +88,39 @@ export default function Heading() {
           </div>
         </div>
 
-        {currentUser ? (
-          <div className="flex items-center md:space-x-6 space-x-2">
-            {/* <div className="flex items-center">
-                        <button className="flex"><FontAwesomeIcon icon={faShoppingBag} className="md:w-[1.5rem] md:h-[1.5rem] w-[0.95rem] "/>
-                        <sup>0</sup>
-                        <p className="text-[0.75rem] px-[0.5rem]" onClick={openCart}>Cart</p></button>
 
-                   </div> */}
-            <Popup trigger={<CartIcon />} modal nested>
-              {isCartOpen && <Cart />}
+            <div className="w-full md:h-[4.5rem] h-[3rem] bg-[#212121] flex items-center text-white justify-between px-[1rem] md:px-[6.31rem]">
+                <div className="">
+                        <div className="md:w-[12.44513rem] md:h-[1.44rem] w-[6rem] h-[1.44rem]">
+                        <Link to={`/Home`}><img className="object-contain w-full h-full" src={"/img/LOGO.png"} alt="logo"/></Link> 
+                        </div>
+                    </div>
+                    <div>
+                   <div className="h-[2.25rem] w-[31.5rem] py-[0.5rem] px-[0.75rem] md:flex items-center relative hidden "> 
+                        <FontAwesomeIcon icon={faSearch} className="absolute px-2 text-black"/>
+                       
+                        <input type="search" placeholder="Search here" className="text-black rounded-[0.375rem] w-full py-[0.5rem] pl-[30px] text-[0.875rem]"/>
+                   </div> 
+                </div>
 
-              {/* {close => (
-                                <div className="modal">
-                                    {isCartOpen && <Cart close={close} />}
-                                    <div className="">
-                                    </div>
-                                </div>
-                            )} */}
-            </Popup>
-            <div className="flex items-center">
-              <FontAwesomeIcon
-                icon={faCircleUser}
-                className="md:w-[1.5rem] md:h-[1.5rem] w-[0.95rem]"
-              />
-              <p className="text-[0.75rem] px-[0.5rem]">
-                {currentUser.displayName}
-              </p>
-              <FontAwesomeIcon
-                icon={faChevronDown}
-                className="w-[1rem] h-[1rem] hidden md:block"
-              />
+            {currentUser ? (<div className="flex items-center md:space-x-6 space-x-2">
+                   {<CartIcon />}
+                   {isCartOpen && <Cart />}
+                   
+                   <div className="flex items-center">
+                        <FontAwesomeIcon icon={faCircleUser} className="md:w-[1.5rem] md:h-[1.5rem] w-[0.95rem]"/>
+                        <p className="text-[0.75rem] px-[0.5rem]">{currentUser.displayName}</p>
+                        <FontAwesomeIcon icon={faChevronDown} className="w-[1rem] h-[1rem] hidden md:block" />
+                   </div>
+                   <div className="flex items-center">
+                        <button onClick={signUserOut} className="text-[0.75rem] px-[0.5rem]">Log Out</button>
+                   </div>
+                    
+                </div>
+            ) : ( <Link to="/"><span className="text-[0.75rem] px-[0.5rem]">Log in</span></Link>) }
+                
+            {isCartOpen && <Cart close={ close}/>}
+
             </div>
             <div className="flex items-center">
               <button
