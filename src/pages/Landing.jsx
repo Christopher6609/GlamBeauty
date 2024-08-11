@@ -23,7 +23,7 @@ export default function Landing(){
     const {productsMap} = useContext(ProductsContext);
      
     //const [Products, setProducts] = useState();
-    const [active, setActive] = useState('md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]');
+   // const [active, setActive] = useState('md:border-b-[3px] border-b-[2px] md:pb-2 border-[#800020]');
 
    
 

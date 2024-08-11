@@ -40,6 +40,7 @@ export default function Layout(){
                     </div>
                 </div>
             </section>
+
             <section>
                 <div className="md:px-[6.44rem] px-[1rem] max-w-[1440px] mx-auto pt-[1.5rem] md:pt-[2.94rem]">
                     <div className="md:pt-[3rem] pt-[1rem]">
@@ -102,7 +103,7 @@ export default function Layout(){
                 </div>
             </section>
             <Footer />
-    </div>
+            </div>
         </>
     )
 }

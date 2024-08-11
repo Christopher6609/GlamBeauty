@@ -1,27 +1,56 @@
 import { createContext, useState, useEffect } from "react";
-import { createUserDocumentFromAuth, onAuthStateChangedListener } from "../../utils/firebase/firebase";
+import { useReducer } from "react";
+import {
+  createUserDocumentFromAuth,
+  onAuthStateChangedListener,
+} from "../../utils/firebase/firebase";
 
 export const UserContext = createContext({
-    currentUser: null,
-    setCurrentUser: () => null
-})
+  currentUser: null,
+  setCurrentUser: () => null,
+});
 
-export const UserProvider = ({children}) => {
-    const [currentUser, setCurrentUser] = useState(null);
-    const value = {currentUser,setCurrentUser};
+export const USER_ACTION_TYPES = {
+  SET_CURRENT_USER: "SET_CURRENT_USER",
+};
 
+const INITIAL_STATE = {
+  currentUser: null,
+};
 
-useEffect(()=>{
-    const unsubscribe = onAuthStateChangedListener((user)=>{
-       if(user){
+const userReducer = (state, action) => {
+  const { type, payload } = action;
+
+  switch (type) {
+    case USER_ACTION_TYPES.SET_CURRENT_USER:
+      return {
+        ...state,
+        currentUser: payload,
+      };
+    default:
+      throw new Error(`Unhandled type ${type} in user Reducer`);
+  }
+};
+
+export const UserProvider = ({ children }) => {
+  // const [currentUser, setCurrentUser] = useState(null);
+
+  const [state, dispatch] = useReducer(userReducer, INITIAL_STATE);
+  const { currentUser } = state;
+  const setCurrentUser = (user) => {
+    dispatch({ type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user });
+  };
+
+  const value = { currentUser, setCurrentUser };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
+      if (user) {
         createUserDocumentFromAuth(user);
-       }
-        setCurrentUser(user);
+      }
+      setCurrentUser(user);
     });
     return unsubscribe;
-},[])
-    return(
-        <UserContext.Provider value={value}>{children}</UserContext.Provider>
-    )
-
-}
+  }, []);
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
+};

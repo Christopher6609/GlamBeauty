@@ -15,7 +15,7 @@ export const ProductsProvider = ({children}) => {
     useEffect(()=>{
         const getProductMap = async () => {
             const productMap = await getCollectionAndDocuments();
-            console.log(productMap);
+            
             setProductsMap(productMap);
         }
         getProductMap();
