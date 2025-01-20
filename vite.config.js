@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -7,8 +7,14 @@ export default defineConfig({
   // vite.config.js
   build: {
     rollupOptions: {
-      external: ['firebase/app']
-    }
-  }
-})
-
+      external: ["firebase/app"],
+    },
+    resolve: {
+      alias: {
+        "firebase/app": "firebase/app",
+        "firebase/auth": "firebase/auth",
+        "firebase/firestore": "firebase/firestore",
+      },
+    },
+  },
+});
